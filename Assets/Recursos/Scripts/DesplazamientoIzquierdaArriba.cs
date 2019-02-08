@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DesplazamientoIzquierdaArriba : MonoBehaviour {
-	private float velocidad = 25f;
+	private float velocidad = 100f;
 	public int maxX,maxY;
 	private int contador = 0;
 

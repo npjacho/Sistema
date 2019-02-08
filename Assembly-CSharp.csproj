@@ -271,17 +271,17 @@
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/Oscar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.StandardEvents">
- <HintPath>C:/Users/Oscar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
- </Reference>
  <Reference Include="Mono.Data.Sqlite">
  <HintPath>C:/Users/Oscar/Documents/Espe Software Septimo/Ssitemas Multimediales/faseuno/Assets/Recursos/BD/Mono.Data.Sqlite.dll</HintPath>
  </Reference>
  <Reference Include="System.Data">
  <HintPath>C:/Users/Oscar/Documents/Espe Software Septimo/Ssitemas Multimediales/faseuno/Assets/Recursos/BD/System.Data.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Users/Oscar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StandardEvents">
+ <HintPath>C:/Users/Oscar/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
