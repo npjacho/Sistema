@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/MENU_ENSENIANZA.unity
+- path: Assets/Scenes/INICIO.unity
   isLoaded: 1
   isActive: 1

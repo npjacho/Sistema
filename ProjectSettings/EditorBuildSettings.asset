@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BASICOA.unity
     guid: 57e2c0e274e8b5644820081a707e0ef5
   - enabled: 1
+    path: Assets/Scenes/BASICOB.unity
+    guid: 7c65093eb41ed6c44bfbd05f84e5a9ad
+  - enabled: 1
     path: Assets/Scenes/APRENDIZAJE.unity
     guid: 6d73af978442694428f638e78474a4ae
   m_configObjects: {}

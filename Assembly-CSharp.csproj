@@ -56,6 +56,7 @@
      <Compile Include="Assets\Recursos\model\rgb.cs" />
      <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE.cs" />
      <Compile Include="Assets\Recursos\Scripts\BASICOa.cs" />
+     <Compile Include="Assets\Recursos\Scripts\BASICOB.cs" />
      <Compile Include="Assets\Recursos\Scripts\conf_ini.cs" />
      <Compile Include="Assets\Recursos\Scripts\DBSQLITE.cs" />
      <Compile Include="Assets\Recursos\Scripts\DesplazamientoDerechaAbajo.cs" />

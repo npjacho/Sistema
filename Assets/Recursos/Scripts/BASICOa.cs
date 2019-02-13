@@ -12,7 +12,7 @@ public class BASICOa : MonoBehaviour {
 	void Start () {
 		imgA = panelA.GetComponent<Image>();
 		imgB= panelB.GetComponent<Image>();
-		colors(conf_ini.a);
+		colors(conf_ini.a, imgA);
 	}
 	
 	// Update is called once per frame
@@ -20,7 +20,7 @@ public class BASICOa : MonoBehaviour {
 		
 	}
 
-		void colors(string nombre_color){
+		void colors(string nombre_color, Image panel){
 		rgb  data = new rgb();
 		string conn = "URI=file:" + Application.dataPath + "/Recursos/BD/dbdata.db";
 		IDbConnection dbconn;
@@ -40,7 +40,7 @@ public class BASICOa : MonoBehaviour {
 				data.g = g;
 				data.b = b; 
 		}
-			imgA.color = new Color(data.r,data.g,data.b);
+			panel.color = new Color(data.r,data.g,data.b);
 
 		reader.Close();
 		reader = null;

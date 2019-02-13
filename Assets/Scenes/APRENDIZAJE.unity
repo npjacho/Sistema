@@ -1254,6 +1254,10 @@ MonoBehaviour:
   btnC: {fileID: 1414825007}
   btnD: {fileID: 279694443}
   d: 400
+  panelA: {fileID: 15774367}
+  panelB: {fileID: 1004312401}
+  panelC: {fileID: 1454785648}
+  panelD: {fileID: 820948478}
 --- !u!1001 &1922062795
 Prefab:
   m_ObjectHideFlags: 0
@@ -1412,7 +1416,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2021581697}
-  - component: {fileID: 2021581696}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1420,21 +1423,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2021581696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2021581695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0926c4c046b78724f954595efe8dbe82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelA: {fileID: 15774367}
-  panelB: {fileID: 1004312401}
-  panelC: {fileID: 1454785648}
-  panelD: {fileID: 820948478}
 --- !u!4 &2021581697
 Transform:
   m_ObjectHideFlags: 0

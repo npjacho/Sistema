@@ -111,10 +111,10 @@ public class conf_ini : MonoBehaviour {
 			SceneManager.LoadScene(3);
 		}
 		if(Selec_level.nombre_nivel == "BASICO B"){
-
+			SceneManager.LoadScene(4);
 		}
 		if(Selec_level.nombre_nivel == "INTERMEDIO"){
-
+			SceneManager.LoadScene(5);
 		}
 		if(Selec_level.nombre_nivel == "AVANZADO"){
 
