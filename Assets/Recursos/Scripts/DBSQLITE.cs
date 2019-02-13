@@ -19,6 +19,7 @@ public class DBSQLITE : MonoBehaviour {
 		imgC = panelC.GetComponent<Image>();
 		imgD = panelD.GetComponent<Image>();
 		colors();
+		sonido();
 	}
 	
 	// Update is called once per frame
@@ -62,6 +63,41 @@ public class DBSQLITE : MonoBehaviour {
 		dbcmd.Dispose();
 		dbcmd = null;
 		dbconn.Close();
+	}
+
+	void sonido (){
+				string conn = "URI=file:" + Application.dataPath + "/Recursos/BD/dbsonido.db";
+		IDbConnection dbconn;
+		dbconn = (IDbConnection) new SqliteConnection(conn);
+		dbconn.Open();
+		IDbCommand dbcmd = dbconn.CreateCommand();
+		string sqlQuery = "Select sonido from sonido where id = 1" ;
+		dbcmd.CommandText = sqlQuery;
+		IDataReader reader = dbcmd.ExecuteReader();
+			while(reader.Read()){
+				byte[] son = (byte[])reader["sonido"];
+            	Debug.Log(son);
+
+				AudioSource audioSource = GetComponent<AudioSource>();
+        		float[] samples = new float[audioSource.clip.samples * audioSource.clip.channels];
+        		audioSource.clip.GetData(samples, 0);
+
+        		for (int i = 0; i < samples.Length; ++i)
+        		{
+            		samples[i] = samples[i] * 0.5f;
+        		}
+
+        		audioSource.clip.SetData(samples, 0);
+
+				 
+			}
+
+		
+		reader.Close();
+		reader = null;
+		dbcmd.Dispose();
+		dbcmd = null;
+		dbconn.Close();	
 	}
 
 

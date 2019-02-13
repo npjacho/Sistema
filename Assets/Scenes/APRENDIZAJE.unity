@@ -1253,6 +1253,7 @@ MonoBehaviour:
   btnB: {fileID: 308106643}
   btnC: {fileID: 1414825007}
   btnD: {fileID: 279694443}
+  d: 400
 --- !u!1001 &1922062795
 Prefab:
   m_ObjectHideFlags: 0

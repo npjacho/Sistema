@@ -55,12 +55,15 @@
   <ItemGroup>
      <Compile Include="Assets\Recursos\model\rgb.cs" />
      <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE.cs" />
+     <Compile Include="Assets\Recursos\Scripts\BASICOa.cs" />
+     <Compile Include="Assets\Recursos\Scripts\conf_ini.cs" />
      <Compile Include="Assets\Recursos\Scripts\DBSQLITE.cs" />
      <Compile Include="Assets\Recursos\Scripts\DesplazamientoDerechaAbajo.cs" />
      <Compile Include="Assets\Recursos\Scripts\DesplazamientoDerechaArriba.cs" />
      <Compile Include="Assets\Recursos\Scripts\DesplazamientoIzquierdaAbajo.cs" />
      <Compile Include="Assets\Recursos\Scripts\DesplazamientoIzquierdaArriba.cs" />
      <Compile Include="Assets\Recursos\Scripts\Menu.cs" />
+     <Compile Include="Assets\Recursos\Scripts\Selec_level.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Oscar/Documents/Espe Software Septimo/Ssitemas Multimediales/faseuno/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

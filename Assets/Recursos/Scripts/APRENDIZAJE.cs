@@ -10,6 +10,8 @@ public class APRENDIZAJE : MonoBehaviour {
 	public float velocidad;
 	public Button btnA, btnB, btnC, btnD;
 	private Transform movB, movA, movC, movD;
+
+	public int d = 400;
 	void Start () {
 		movA = btnA.transform;
 		btnB.interactable = false;
@@ -30,6 +32,12 @@ public class APRENDIZAJE : MonoBehaviour {
 			if(movA.position.x > 530 && movA.position.y < 530 ){
 				movA.position += new Vector3(0f, Time.deltaTime * velocidad,0f);
 			}
+			
+			if(movA.position.x >= 531 && movA.position.y >= 530){
+			
+				 movA.Rotate( Vector3.up * velocidad * Time.deltaTime);
+			}
+			
 		}
 
 		if(contador == 3){
@@ -41,6 +49,11 @@ public class APRENDIZAJE : MonoBehaviour {
 				if(movB.position.y < 60){
 					btnB.interactable = true;
 				}
+			}
+			if(movB.position.x >= 531 && movB.position.y <= 60 ){
+				d--;
+				 movB.Rotate( Vector3.up * velocidad * Time.deltaTime);
+				Debug.Log(d);
 			}
 		}
 
