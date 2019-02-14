@@ -4,19 +4,108 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Data;
 using Mono.Data.Sqlite;
+using UnityEngine.SceneManagement;
 
 public class BASICOa : MonoBehaviour {
 	public RectTransform panelA,panelB;
 	private Image imgA,imgB;
+	public Button btnPrincipal;
+
+	private Transform pos_btn_A,pos_btn_B;
+
+	private GameObject btnIzq;
+	private int contador = 0, contador_r;
+	private int r = 3;
+	//private float velocidad = conf_ini.velovidad_boton;
+	private float velocidad = 100f;
+
+	public Text txtMsg;
+
+	public GameObject audio;
+    public float Volumen = 1.0f;
+	protected Transform Posicion = null;
+
 	// Use this for initialization
 	void Start () {
+		txtMsg.enabled = false;
+		contador_r = 1;
+		Debug.Log(velocidad);
+		InstanciarIzq();
+		InstanciarDer();
 		imgA = panelA.GetComponent<Image>();
 		imgB= panelB.GetComponent<Image>();
-		colors(conf_ini.a, imgA);
+		//colors(conf_ini.a, imgA);
+		colors("azul", imgA);
+
+		//audio.GetComponent<AudioClip>() = "URI=file:" + Application.dataPath + "/Recursos/Audio/sonidoA.mp3";
+	}
+
+	public void InstanciarIzq(){
+
+		//POSICIONES INICIALES
+		btnPrincipal.GetComponentInChildren<Text>().text = "IZQUIERDA";
+		//btnPrincipal.onClick.AddListener(contar);
+		btnIzq = Instantiate(btnPrincipal.gameObject,new Vector3(-100,(Screen.height/2),0f),transform.rotation);
+		Debug.Log( "contador_r = " + contador_r + " y r = " + r);
+		btnIzq.transform.SetParent(this.transform);
+		pos_btn_A = btnIzq.GetComponent<Transform>();
+		if(contador_r == r){
+		pos_btn_A.GetComponent<Button>().onClick.AddListener(contar);
+		}
+		//Debug.Log("Xa = "+ pos_btn_A.position.x + "Ya = " + pos_btn_A.position.y);
+		
+	}
+	public void InstanciarDer(){
+		
+		btnPrincipal.GetComponentInChildren<Text>().text = "DERECHA";
+		GameObject btnDer = Instantiate(btnPrincipal.gameObject,new Vector3(Screen.width + 100,(Screen.height/2),0f),transform.rotation);
+		btnDer.transform.SetParent(this.transform);
+		pos_btn_B = btnDer.GetComponent<Transform>();
+		if(contador_r == 2){
+		pos_btn_B.GetComponent<Button>().onClick.AddListener(contar);
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(contador == 0){
+			if(pos_btn_A.position.x < ( (Screen.width/2) - 100) ){
+				AudioSource.PlayClipAtPoint(Sonido, Posicion.position, Volumen);
+				pos_btn_A.position += new Vector3(Time.deltaTime * velocidad ,0f,0f);	
+			}
+			if(pos_btn_A.position.x >= ( (Screen.width/2) - 100) ){
+				if(  contador_r < r ){
+					contador_r++;
+					Destroy(pos_btn_A.gameObject);
+					InstanciarIzq();
+					Debug.Log(contador_r);
+				}
+			}
+		}
+		if(contador == 1 ){
+
+			if(pos_btn_B.position.x > ( (Screen.width/2) + 100) ){
+				pos_btn_B.position += new Vector3( - Time.deltaTime * velocidad ,0f,0f);	
+			}
+			if(pos_btn_B.position.x <= ( (Screen.width/2) + 100) ){
+				if(  contador_r > 1 ){
+					Destroy(pos_btn_B.gameObject, 1f);
+					InstanciarDer();
+					contador_r--;
+					Debug.Log(contador_r);
+				}
+			}
+		}
+
+		if(contador >= 2){
+			txtMsg.enabled = true;
+			if(Input.GetKeyDown(KeyCode.R)){
+				SceneManager.LoadScene(1);
+			}
+		}
+
+
+		
 		
 	}
 
@@ -48,4 +137,19 @@ public class BASICOa : MonoBehaviour {
 		dbcmd = null;
 		dbconn.Close();
 	}
+
+	void contar (){
+		contador++;
+		Debug.Log(contador);
+		if(contador == 1 ){
+			imgA.color = Color.white;
+			colors("azul", imgB);
+			Destroy(pos_btn_A.gameObject);
+		}
+		if(contador == 2){
+			imgB.color = Color.white;
+			Destroy(pos_btn_B.gameObject);
+		}
+	}
+
 }
