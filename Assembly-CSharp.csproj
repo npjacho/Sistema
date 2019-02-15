@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Recursos\model\rgb.cs" />
      <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE.cs" />
+     <Compile Include="Assets\Recursos\Scripts\AVANZADO.cs" />
      <Compile Include="Assets\Recursos\Scripts\BASICOa.cs" />
      <Compile Include="Assets\Recursos\Scripts\BASICOB.cs" />
      <Compile Include="Assets\Recursos\Scripts\conf_ini.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Recursos\Scripts\DesplazamientoDerechaArriba.cs" />
      <Compile Include="Assets\Recursos\Scripts\DesplazamientoIzquierdaAbajo.cs" />
      <Compile Include="Assets\Recursos\Scripts\DesplazamientoIzquierdaArriba.cs" />
+     <Compile Include="Assets\Recursos\Scripts\INTERMEDIO.cs" />
      <Compile Include="Assets\Recursos\Scripts\Menu.cs" />
      <Compile Include="Assets\Recursos\Scripts\Selec_level.cs" />
  <Reference Include="UnityEditor.StandardEvents">

@@ -15,9 +15,10 @@ public class BASICOa : MonoBehaviour {
 
 	private GameObject btnIzq;
 	private int contador = 0, contador_r;
-	private int r = 3;
-	//private float velocidad = conf_ini.velovidad_boton;
-	private float velocidad = 100f;
+	//private int r = 3;
+	private int r = conf_ini.num_repeticiones;
+	private float velocidad = conf_ini.velocidad_boton;
+	//private float velocidad = 100f;
 
 	public Text txtMsg;
 
@@ -27,6 +28,12 @@ public class BASICOa : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		Debug.Log("Velocidad = " + velocidad);
+		Debug.Log("Repeticiones = " + r);
+		Debug.Log("Color 1 = " + conf_ini.a);
+		Debug.Log("Color 2 = " + conf_ini.b);
+
 		txtMsg.enabled = false;
 		contador_r = 1;
 		Debug.Log(velocidad);
@@ -34,8 +41,8 @@ public class BASICOa : MonoBehaviour {
 		InstanciarDer();
 		imgA = panelA.GetComponent<Image>();
 		imgB= panelB.GetComponent<Image>();
-		//colors(conf_ini.a, imgA);
-		colors("azul", imgA);
+		colors(conf_ini.a, imgA);
+		//colors("azul", imgA);
 
 		//audio.GetComponent<AudioClip>() = "URI=file:" + Application.dataPath + "/Recursos/Audio/sonidoA.mp3";
 	}
@@ -70,7 +77,7 @@ public class BASICOa : MonoBehaviour {
 	void Update () {
 		if(contador == 0){
 			if(pos_btn_A.position.x < ( (Screen.width/2) - 100) ){
-				AudioSource.PlayClipAtPoint(Sonido, Posicion.position, Volumen);
+				//AudioSource.PlayClipAtPoint(Sonido, Posicion.position, Volumen);
 				pos_btn_A.position += new Vector3(Time.deltaTime * velocidad ,0f,0f);	
 			}
 			if(pos_btn_A.position.x >= ( (Screen.width/2) - 100) ){
@@ -116,19 +123,20 @@ public class BASICOa : MonoBehaviour {
 		dbconn = (IDbConnection) new SqliteConnection(conn);
 		dbconn.Open();
 		IDbCommand dbcmd = dbconn.CreateCommand();
-		string sqlQuery = "Select * from color where nombre_color = '" + nombre_color + "'" ;
+		string sqlQuery = "Select r_color,g_color,b_color from color where nombre_color = '" + nombre_color + "'" ;
 		Debug.Log(sqlQuery);
 		dbcmd.CommandText = sqlQuery;
 		IDataReader reader = dbcmd.ExecuteReader();
 			while(reader.Read()){
 				//int id = reader.GetInt32(0);
-				int r = reader.GetInt32(3);
-				int g = reader.GetInt32(5);
-				int b = reader.GetInt32(4);
+				int r = reader.GetInt32(0);
+				int g = reader.GetInt32(1);
+				int b = reader.GetInt32(2);
 				data.r = r;
 				data.g = g;
 				data.b = b; 
 		}
+			Debug.Log("Color = (" + data.r + "," + data.g + "," + data.b + ")" );
 			panel.color = new Color(data.r,data.g,data.b);
 
 		reader.Close();
@@ -143,7 +151,7 @@ public class BASICOa : MonoBehaviour {
 		Debug.Log(contador);
 		if(contador == 1 ){
 			imgA.color = Color.white;
-			colors("azul", imgB);
+			colors(conf_ini.b, imgB);
 			Destroy(pos_btn_A.gameObject);
 		}
 		if(contador == 2){

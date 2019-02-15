@@ -15,11 +15,12 @@ public class conf_ini : MonoBehaviour {
 	public Dropdown velocidad;
 	public Dropdown repeticiones; 
 
-	public static float velovidad_boton;
+	public static float velocidad_boton;
 	public static int num_repeticiones;
 
 	public static string a,b,c,d,e,f,g,h,i;
 	void Start () {
+		velocidad_boton = 0;
 		txtTitulo.text = Selec_level.nombre_nivel;
 		cargarColores();
 		if(Selec_level.nivel <= 2 ){
@@ -125,16 +126,16 @@ public class conf_ini : MonoBehaviour {
 	public void velocidad_ini (int index){
 		Debug.Log(index);
 		if(index == 0){
-			velovidad_boton = 40f;
+			velocidad_boton = 90f;
 		}
 		if(index == 1){
-			velovidad_boton = 70f;
+			velocidad_boton = 100f;
 		}
 		if(index == 2){
-			velovidad_boton = 100f;
+			velocidad_boton = 150f;
 		}
 		if(index == 3){
-			velovidad_boton = 130f;
+			velocidad_boton = 200f;
 		}
 
 	}

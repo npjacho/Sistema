@@ -145,8 +145,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 202.3, y: 0.7999878}
-  m_SizeDelta: {x: -431, y: -31.3}
+  m_AnchoredPosition: {x: 198.8, y: 0.7999878}
+  m_SizeDelta: {x: -424, y: -31.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &148249480
 MonoBehaviour:
@@ -434,6 +434,8 @@ MonoBehaviour:
   btnPrincipal: {fileID: 114831444673806862, guid: 0d52f394af0523342b92d1135a64de3f,
     type: 2}
   txtMsg: {fileID: 1566814972}
+  audio: {fileID: 0}
+  Volumen: 1
 --- !u!1 &1161941273
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +549,8 @@ MonoBehaviour:
   panelB: {fileID: 148249479}
   btnPrincipal: {fileID: 0}
   txtMsg: {fileID: 0}
+  audio: {fileID: 0}
+  Volumen: 1
 --- !u!1 &1566814970
 GameObject:
   m_ObjectHideFlags: 0
