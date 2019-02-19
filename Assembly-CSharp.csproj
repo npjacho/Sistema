@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Recursos\model\conver_sonido.cs" />
      <Compile Include="Assets\Recursos\model\rgb.cs" />
      <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE.cs" />
      <Compile Include="Assets\Recursos\Scripts\AVANZADO.cs" />

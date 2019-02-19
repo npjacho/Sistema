@@ -14,7 +14,7 @@ public class AVANZADO : MonoBehaviour {
 	private Transform pos_btn_A,pos_btn_B,pos_btn_C,pos_btn_D,pos_btn_E,pos_btn_F,pos_btn_G,pos_btn_H,pos_btn_I;
 	private int contador = 0, contador_r;
 	private int r =  3;//conf_ini.num_repeticiones;
-	private float velocidad = 120f;conf_ini.velocidad_boton;
+	private float velocidad = 120f;//conf_ini.velocidad_boton;
 	public Text txtMsg;
 
 	// Use this for initialization

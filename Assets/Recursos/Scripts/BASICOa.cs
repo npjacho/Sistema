@@ -20,11 +20,12 @@ public class BASICOa : MonoBehaviour {
 	private float velocidad = conf_ini.velocidad_boton;
 	//private float velocidad = 100f;
 
+	//Datos de la Base de Datos.
+	public AudioSource audioUbicacion;
+	private int xi;
+
 	public Text txtMsg;
 
-	public GameObject audio;
-    public float Volumen = 1.0f;
-	protected Transform Posicion = null;
 
 	// Use this for initialization
 	void Start () {
@@ -33,37 +34,36 @@ public class BASICOa : MonoBehaviour {
 		Debug.Log("Repeticiones = " + r);
 		Debug.Log("Color 1 = " + conf_ini.a);
 		Debug.Log("Color 2 = " + conf_ini.b);
-
+		datosPosicion(1);
 		txtMsg.enabled = false;
 		contador_r = 1;
 		Debug.Log(velocidad);
 		InstanciarIzq();
-		InstanciarDer();
+		//InstanciarDer();
 		imgA = panelA.GetComponent<Image>();
 		imgB= panelB.GetComponent<Image>();
 		colors(conf_ini.a, imgA);
 		//colors("azul", imgA);
-
-		//audio.GetComponent<AudioClip>() = "URI=file:" + Application.dataPath + "/Recursos/Audio/sonidoA.mp3";
 	}
 
 	public void InstanciarIzq(){
-
+		
 		//POSICIONES INICIALES
 		btnPrincipal.GetComponentInChildren<Text>().text = "IZQUIERDA";
 		//btnPrincipal.onClick.AddListener(contar);
-		btnIzq = Instantiate(btnPrincipal.gameObject,new Vector3(-100,(Screen.height/2),0f),transform.rotation);
+		//btnIzq = Instantiate(btnPrincipal.gameObject,new Vector3(-100,(Screen.height/2),0f),transform.rotation);
+		btnIzq = Instantiate(btnPrincipal.gameObject,new Vector3( xi ,(Screen.height/2),0f),transform.rotation);
 		Debug.Log( "contador_r = " + contador_r + " y r = " + r);
 		btnIzq.transform.SetParent(this.transform);
 		pos_btn_A = btnIzq.GetComponent<Transform>();
 		if(contador_r == r){
 		pos_btn_A.GetComponent<Button>().onClick.AddListener(contar);
 		}
+		audioUbicacion.Play();
 		//Debug.Log("Xa = "+ pos_btn_A.position.x + "Ya = " + pos_btn_A.position.y);
 		
 	}
 	public void InstanciarDer(){
-		
 		btnPrincipal.GetComponentInChildren<Text>().text = "DERECHA";
 		GameObject btnDer = Instantiate(btnPrincipal.gameObject,new Vector3(Screen.width + 100,(Screen.height/2),0f),transform.rotation);
 		btnDer.transform.SetParent(this.transform);
@@ -71,30 +71,31 @@ public class BASICOa : MonoBehaviour {
 		if(contador_r == 2){
 		pos_btn_B.GetComponent<Button>().onClick.AddListener(contar);
 		}
+		audioUbicacion.Play();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(contador == 0){
-			if(pos_btn_A.position.x < ( (Screen.width/2) - 100) ){
+			if(pos_btn_A.position.x < ( (Screen.width/2) + xi) ){
 				//AudioSource.PlayClipAtPoint(Sonido, Posicion.position, Volumen);
 				pos_btn_A.position += new Vector3(Time.deltaTime * velocidad ,0f,0f);	
 			}
-			if(pos_btn_A.position.x >= ( (Screen.width/2) - 100) ){
+			if(pos_btn_A.position.x >= ( (Screen.width/2) + xi) ){
 				if(  contador_r < r ){
 					contador_r++;
 					Destroy(pos_btn_A.gameObject);
 					InstanciarIzq();
-					Debug.Log(contador_r);
+					//Debug.Log(contador_r);
 				}
 			}
 		}
 		if(contador == 1 ){
 
-			if(pos_btn_B.position.x > ( (Screen.width/2) + 100) ){
+			if(pos_btn_B.position.x > ( (Screen.width/2) + xi) ){
 				pos_btn_B.position += new Vector3( - Time.deltaTime * velocidad ,0f,0f);	
 			}
-			if(pos_btn_B.position.x <= ( (Screen.width/2) + 100) ){
+			if(pos_btn_B.position.x <= ( (Screen.width/2) + xi) ){
 				if(  contador_r > 1 ){
 					Destroy(pos_btn_B.gameObject, 1f);
 					InstanciarDer();
@@ -150,14 +151,46 @@ public class BASICOa : MonoBehaviour {
 		contador++;
 		Debug.Log(contador);
 		if(contador == 1 ){
+			datosPosicion(2);
 			imgA.color = Color.white;
 			colors(conf_ini.b, imgB);
 			Destroy(pos_btn_A.gameObject);
+			InstanciarDer();
 		}
 		if(contador == 2){
+
 			imgB.color = Color.white;
 			Destroy(pos_btn_B.gameObject);
 		}
+	}
+
+
+		void datosPosicion (int id) {
+		byte[] son = new byte[0];
+		string conn = "URI=file:" + Application.dataPath + "/Recursos/BD/dbdata.db";
+		IDbConnection dbconn;
+		dbconn = (IDbConnection) new SqliteConnection (conn);
+		dbconn.Open ();
+		IDbCommand dbcmd = dbconn.CreateCommand ();
+		string sqlQuery = "Select * from ubicacion where id = " + id;
+		dbcmd.CommandText = sqlQuery;
+		IDataReader reader = dbcmd.ExecuteReader ();
+		while (reader.Read ()) {
+			son = (byte[]) reader["audio_ubicacion"];
+			Debug.Log (son.Length);
+			xi =  reader.GetInt32(4);
+			Debug.Log(xi);
+			}
+			WAV sonido  = new WAV(son);
+			AudioClip audioClip = AudioClip.Create("testSound", sonido.SampleCount, 1, sonido.Frequency, false, false);
+			audioClip.SetData(sonido.LeftChannel, 0);
+			audioUbicacion.clip = audioClip;
+			//audioA.Play();
+		reader.Close ();
+		reader = null;
+		dbcmd.Dispose ();
+		dbcmd = null;
+		dbconn.Close ();
 	}
 
 }
