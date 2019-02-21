@@ -20,7 +20,7 @@ public class conf_ini : MonoBehaviour {
 
 	public static string a,b,c,d,e,f,g,h,i;
 	void Start () {
-		velocidad_boton = 0;
+		//velocidad_boton = 0;
 		txtTitulo.text = Selec_level.nombre_nivel;
 		cargarColores();
 		if(Selec_level.nivel <= 2 ){
@@ -118,7 +118,7 @@ public class conf_ini : MonoBehaviour {
 			SceneManager.LoadScene(5);
 		}
 		if(Selec_level.nombre_nivel == "AVANZADO"){
-
+			SceneManager.LoadScene(6);
 		}
 		
 	}
@@ -126,16 +126,16 @@ public class conf_ini : MonoBehaviour {
 	public void velocidad_ini (int index){
 		Debug.Log(index);
 		if(index == 0){
-			velocidad_boton = 90f;
-		}
-		if(index == 1){
 			velocidad_boton = 100f;
 		}
+		if(index == 1){
+			velocidad_boton = 120f;
+		}
 		if(index == 2){
-			velocidad_boton = 150f;
+			velocidad_boton = 170f;
 		}
 		if(index == 3){
-			velocidad_boton = 200f;
+			velocidad_boton = 250f;
 		}
 
 	}
