@@ -17,10 +17,14 @@ public class INTERMEDIO : MonoBehaviour {
 	private int contador = 0, contador_r;
 	private int r =  conf_ini.num_repeticiones;
 	private float velocidad = conf_ini.velocidad_boton;
+
+	private int xi,xf,yi,yf;
 	public Text txtMsg;
+	public AudioSource audioUbicacion;
 
 	// Use this for initialization
 	void Start () {
+		datosPosicion(5);
 		txtMsg.enabled = false;
 		contador_r = 1;
 		InstanciarIzqSuperior();
@@ -41,13 +45,15 @@ public class INTERMEDIO : MonoBehaviour {
 		//POSICIONES INICIALES
 		btnPrincipal.GetComponentInChildren<Text>().text = "Izquierda Superior";
 		//btnPrincipal.onClick.AddListener(contar);
-		GameObject btnIzqSup = Instantiate(btnPrincipal.gameObject,new Vector3(-100 ,(Screen.height/2) + 25  ,0),transform.rotation);
+		//GameObject btnIzqSup = Instantiate(btnPrincipal.gameObject,new Vector3(-100 ,(Screen.height/2) + 25  ,0),transform.rotation);
+		GameObject btnIzqSup = Instantiate(btnPrincipal.gameObject,new Vector3(xi ,(Screen.height/2) + yi  ,0),transform.rotation);
 		Debug.Log( "contador_r = " + contador_r + " y r = " + r);
 		btnIzqSup.transform.SetParent(this.transform);
 		pos_btn_A = btnIzqSup.GetComponent<Transform>();
 		if(contador_r == r){
 		pos_btn_A.GetComponent<Button>().onClick.AddListener(contar);
 		}
+			audioUbicacion.Play();
 		//Debug.Log("Xa = "+ pos_btn_A.position.x + "Ya = " + pos_btn_A.position.y);
 		
 	}
@@ -57,13 +63,15 @@ public class INTERMEDIO : MonoBehaviour {
 		//POSICIONES INICIALES
 		btnPrincipal.GetComponentInChildren<Text>().text = "Izquierda Inferior";
 		//btnPrincipal.onClick.AddListener(contar);
-		GameObject btnIzqInf = Instantiate(btnPrincipal.gameObject,new Vector3( -100, (Screen.height/2) - 25 ,0),transform.rotation);
+		//GameObject btnIzqInf = Instantiate(btnPrincipal.gameObject,new Vector3( -100, (Screen.height/2) - 25 ,0),transform.rotation);
+		GameObject btnIzqInf = Instantiate(btnPrincipal.gameObject,new Vector3( xi, (Screen.height/2) + yi ,0),transform.rotation);
 		Debug.Log( "contador_r = " + contador_r + " y r = " + r);
 		btnIzqInf.transform.SetParent(this.transform);
 		pos_btn_B = btnIzqInf.GetComponent<Transform>();
 		if(contador_r == 1){
 		pos_btn_B.GetComponent<Button>().onClick.AddListener(contar);
 		}
+		audioUbicacion.Play();
 		//Debug.Log("Xa = "+ pos_btn_A.position.x + "Ya = " + pos_btn_A.position.y);
 		
 	}
@@ -72,23 +80,27 @@ public class INTERMEDIO : MonoBehaviour {
 		public void InstanciarDerInferior(){
 		
 		btnPrincipal.GetComponentInChildren<Text>().text = "Derecha Inferior";
-		GameObject btnDerInf = Instantiate(btnPrincipal.gameObject,new Vector3( Screen.width + 100 , (Screen.height/2) - 25  ,0),transform.rotation);
+		//GameObject btnDerInf = Instantiate(btnPrincipal.gameObject,new Vector3( Screen.width + 100 , (Screen.height/2) - 25  ,0),transform.rotation);
+		GameObject btnDerInf = Instantiate(btnPrincipal.gameObject,new Vector3( Screen.width + xi , (Screen.height/2) + yi  ,0),transform.rotation);
 		btnDerInf.transform.SetParent(this.transform);
 		pos_btn_C = btnDerInf.GetComponent<Transform>();
 		Debug.Log(" Se creo el boton = " + contador_r);
 		if(contador_r == r){
 		pos_btn_C.GetComponent<Button>().onClick.AddListener(contar);
 		}
+		audioUbicacion.Play();
 	}
 		public void InstanciarDerSuperior(){
 		
 		btnPrincipal.GetComponentInChildren<Text>().text = "Derecha Superior";
-		GameObject btnDerSup = Instantiate(btnPrincipal.gameObject,new Vector3( Screen.width + 100 , (Screen.height/2) + 25  ,0),transform.rotation);
+		// GameObject btnDerSup = Instantiate(btnPrincipal.gameObject,new Vector3( Screen.width + 100 , (Screen.height/2) + 25  ,0),transform.rotation);
+		GameObject btnDerSup = Instantiate(btnPrincipal.gameObject,new Vector3( Screen.width + xi , (Screen.height/2) + yi  ,0),transform.rotation);
 		btnDerSup.transform.SetParent(this.transform);
 		pos_btn_D = btnDerSup.GetComponent<Transform>();
 		if(contador_r == 1){
 		pos_btn_D.GetComponent<Button>().onClick.AddListener(contar);
 		}
+		audioUbicacion.Play();
 	}
 
 	
@@ -126,6 +138,7 @@ public class INTERMEDIO : MonoBehaviour {
 		contador++;
 		Debug.Log(contador);
 		if(contador == 1 ){
+			datosPosicion(6);
 			imgA.color = Color.white;
 			colors(conf_ini.b, imgB);
 			//colors("amarillo", imgB);
@@ -133,6 +146,7 @@ public class INTERMEDIO : MonoBehaviour {
 			InstanciarIzqInferior();
 		}
 		if(contador == 2){
+			datosPosicion(7);
 			imgB.color = Color.white;
 			colors(conf_ini.c, imgC);
 			//colors("verde", imgC);
@@ -140,6 +154,7 @@ public class INTERMEDIO : MonoBehaviour {
 			InstanciarDerInferior();
 		}
 		if(contador == 3){
+			datosPosicion(8);
 			imgC.color = Color.white;
 			//colors("rojo", imgD);
 			colors(conf_ini.d, imgD);
@@ -155,12 +170,12 @@ public class INTERMEDIO : MonoBehaviour {
 	void Update () {
 		if(contador == 0){
 
-			if( pos_btn_A.position.x < ( (Screen.width/2) - 100 ) ){
+			if( pos_btn_A.position.x < ( (Screen.width/2) + xf ) ){
 				pos_btn_A.position += new Vector3(Time.deltaTime * velocidad,0f,0f);
 			}
-			if(pos_btn_A.position.x > ( (Screen.width/2) - 100 ) && pos_btn_A.position.y < (Screen.height - 50 ) ){
+			if(pos_btn_A.position.x > ( (Screen.width/2) + xf  ) && pos_btn_A.position.y < (Screen.height + yf ) ){
 				pos_btn_A.position += new Vector3(0f, Time.deltaTime * velocidad,0f);
-				if( pos_btn_A.position.y > (Screen.height - 50)  && contador_r < r ){
+				if( pos_btn_A.position.y > (Screen.height + yf)  && contador_r < r ){
 					contador_r++;
 					Destroy(pos_btn_A.gameObject);
 					InstanciarIzqSuperior();
@@ -171,12 +186,12 @@ public class INTERMEDIO : MonoBehaviour {
 		}
 
 		if(contador == 1){
-			if( pos_btn_B.position.x <  ( (Screen.width/2) - 100 ) ){
+			if( pos_btn_B.position.x <  ( (Screen.width/2) + xf ) ){
 				pos_btn_B.position += new Vector3(Time.deltaTime * velocidad,0f,0f);
 			}
-			if(pos_btn_B.position.x >  ( (Screen.width/2) - 100 ) && pos_btn_B.position.y > 50 ){
+			if(pos_btn_B.position.x >  ( (Screen.width/2) + xf ) && pos_btn_B.position.y > yf ){
 				pos_btn_B.position += new Vector3(0f, - Time.deltaTime * velocidad,0f);
-				if( pos_btn_B.position.y < 50 && contador_r > 1){
+				if( pos_btn_B.position.y < yf && contador_r > 1){
 					contador_r--;
 					Destroy(pos_btn_B.gameObject);
 					InstanciarIzqInferior();
@@ -191,12 +206,12 @@ public class INTERMEDIO : MonoBehaviour {
 		}
 
 	if(contador == 2){
-			if( pos_btn_C.position.x >  ( (Screen.width/2) + 100 ) ){
+			if( pos_btn_C.position.x >  ( (Screen.width/2) + xf) ){
 				pos_btn_C.position += new Vector3(-Time.deltaTime * velocidad,0f,0f);
 			}
-			if(pos_btn_C.position.x <  ( (Screen.width/2) + 100 ) && pos_btn_C.position.y > 50 ){
+			if(pos_btn_C.position.x <  ( (Screen.width/2) + xf ) && pos_btn_C.position.y > yf ){
 				pos_btn_C.position += new Vector3(0f, - Time.deltaTime * velocidad,0f);
-				if( pos_btn_C.position.y < 50 && contador_r < r){
+				if( pos_btn_C.position.y < yf && contador_r < r){
 					contador_r++;
 					Destroy(pos_btn_C.gameObject);
 					InstanciarDerInferior();
@@ -211,12 +226,12 @@ public class INTERMEDIO : MonoBehaviour {
 		}
 
 		if(contador == 3){
-			if(pos_btn_D.position.x >( (Screen.width/2) + 100 )){
+			if(pos_btn_D.position.x >( (Screen.width/2) + xf )){
 				pos_btn_D.position += new Vector3( - Time.deltaTime * velocidad,0f,0f);
 			}
-			if(pos_btn_D.position.x < ( (Screen.width/2) + 100 ) && pos_btn_D.position.y < (Screen.height - 50 ) ){
+			if(pos_btn_D.position.x < ( (Screen.width/2) + xf ) && pos_btn_D.position.y < (Screen.height + yf ) ){
 				pos_btn_D.position += new Vector3(0f,  Time.deltaTime * velocidad,0f);
-				if(pos_btn_D.position.y > (Screen.height - 50 ) && contador_r > 1 ){
+				if(pos_btn_D.position.y > (Screen.height + yf ) && contador_r > 1 ){
 					contador_r--;
 					Destroy(pos_btn_D.gameObject);
 					InstanciarDerSuperior();
@@ -232,5 +247,36 @@ public class INTERMEDIO : MonoBehaviour {
 			}
 		}
 		
+	}
+
+	void datosPosicion (int id) {
+		byte[] son = new byte[0];
+		string conn = "URI=file:" + Application.dataPath + "/Recursos/BD/dbdata.db";
+		IDbConnection dbconn;
+		dbconn = (IDbConnection) new SqliteConnection (conn);
+		dbconn.Open ();
+		IDbCommand dbcmd = dbconn.CreateCommand ();
+		string sqlQuery = "Select * from ubicacion where id = " + id;
+		dbcmd.CommandText = sqlQuery;
+		IDataReader reader = dbcmd.ExecuteReader ();
+		while (reader.Read ()) {
+			son = (byte[]) reader["audio_ubicacion"];
+			Debug.Log (son.Length);
+			xi = reader.GetInt32(4);
+			yi =  reader.GetInt32(6);
+			xf = reader.GetInt32(5);
+			yf = reader.GetInt32(7);
+			Debug.Log(yi);
+			}
+			WAV sonido  = new WAV(son);
+			AudioClip audioClip = AudioClip.Create("Sonido", sonido.SampleCount, 1, sonido.Frequency, false, false);
+			audioClip.SetData(sonido.LeftChannel, 0);
+			audioUbicacion.clip = audioClip;
+			//audioA.Play();
+		reader.Close ();
+		reader = null;
+		dbcmd.Dispose ();
+		dbcmd = null;
+		dbconn.Close ();
 	}
 }
