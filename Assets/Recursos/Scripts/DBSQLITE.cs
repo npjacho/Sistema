@@ -9,7 +9,7 @@ public class DBSQLITE : MonoBehaviour {
 	// Use this for initialization
 	public AudioSource audioA;
 	void Start () {
-		sonido ();
+		//sonido ();
 	}
 
 	// Update is called once per frame

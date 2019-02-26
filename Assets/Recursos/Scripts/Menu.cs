@@ -14,8 +14,11 @@ public class Menu : MonoBehaviour {
 		
 	}
 
-	public void aprendizaje (){
+	public void ensenianza (){
 		SceneManager.LoadScene(1);
+	}
+	public void aprendizaje (){
+		SceneManager.LoadScene(8);
 	}
 
 }

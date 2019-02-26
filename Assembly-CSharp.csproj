@@ -56,6 +56,12 @@
      <Compile Include="Assets\Recursos\model\conver_sonido.cs" />
      <Compile Include="Assets\Recursos\model\rgb.cs" />
      <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE.cs" />
+     <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE\AVANZADO_APRENDIZAJE.cs" />
+     <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE\BASICOA_APRENDIZAJE.cs" />
+     <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE\BASICOB_APRENDIZAJE.cs" />
+     <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE\INTERMEDIO_APRENDIZAJE.cs" />
+     <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE\Menu_Aprendizaje_1.cs" />
+     <Compile Include="Assets\Recursos\Scripts\APRENDIZAJE\Menu_aprendizaje_2.cs" />
      <Compile Include="Assets\Recursos\Scripts\AVANZADO.cs" />
      <Compile Include="Assets\Recursos\Scripts\BASICOa.cs" />
      <Compile Include="Assets\Recursos\Scripts\BASICOB.cs" />
