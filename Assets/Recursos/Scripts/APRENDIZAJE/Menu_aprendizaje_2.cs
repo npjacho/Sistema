@@ -38,6 +38,14 @@ public class Menu_aprendizaje_2 : MonoBehaviour {
 		SceneManager.LoadScene(13);
 	}
 
+	public void regresar(){
+		SceneManager.LoadScene(8);
+	}
+
+	public void regresarMenu(){
+		SceneManager.LoadScene(0);
+	}
+
 
 
 }

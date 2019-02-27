@@ -30,6 +30,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 	private int r =  Menu_Aprendizaje_1.num_repeticiones;
 	private int velocidad = Menu_Aprendizaje_1.velocidad_data;
 	int contador_repeticiones = 2;
+	private int codigo_ubicacion_2;
 	// Use this for initialization
 	void Start () {
 		btnMsg.SetActive (false);
@@ -321,66 +322,6 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 
 	}
 
-	public void InstanciarIzqSuperior () {
-
-		//POSICIONES INICIALES
-		//btnPrincipal.GetComponentInChildren<Text>().text = "Izquierda Superior";
-		btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-		//GameObject btnIzqSup = Instantiate(btnPrincipal.gameObject,new Vector3(-100 ,(Screen.height/2) + 25  ,0),transform.rotation);
-		GameObject btnIzqSup = Instantiate (btnPrincipal.gameObject, new Vector3 (xi, (Screen.height / 2) + yi, 0), transform.rotation);
-		btnIzqSup.transform.SetParent (this.transform);
-		pos_btn_A = btnIzqSup.GetComponent<Transform> ();
-		if (contador_r == r) {
-			pos_btn_A.GetComponent<Button> ().onClick.AddListener (contar);
-		}
-		StartCoroutine (playsound ());
-
-	}
-
-	public void InstanciarIzqInferior () {
-
-		//POSICIONES INICIALES
-		//btnPrincipal.GetComponentInChildren<Text>().text = "Izquierda Inferior";
-		btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-		//GameObject btnIzqInf = Instantiate(btnPrincipal.gameObject,new Vector3( -100, (Screen.height/2) - 25 ,0),transform.rotation);
-		GameObject btnIzqInf = Instantiate (btnPrincipal.gameObject, new Vector3 (xi, (Screen.height / 2) + yi, 0), transform.rotation);
-		btnIzqInf.transform.SetParent (this.transform);
-		pos_btn_B = btnIzqInf.GetComponent<Transform> ();
-		if (contador_r == r) {
-			pos_btn_B.GetComponent<Button> ().onClick.AddListener (contar);
-		}
-		StartCoroutine (playsound ());
-		//Debug.Log("Xa = "+ pos_btn_A.position.x + "Ya = " + pos_btn_A.position.y);
-
-	}
-
-	public void InstanciarDerInferior () {
-
-		//btnPrincipal.GetComponentInChildren<Text>().text = "Derecha Inferior";
-		btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-		//GameObject btnDerInf = Instantiate(btnPrincipal.gameObject,new Vector3( Screen.width + 100 , (Screen.height/2) - 25  ,0),transform.rotation);
-		GameObject btnDerInf = Instantiate (btnPrincipal.gameObject, new Vector3 (Screen.width + xi, (Screen.height / 2) + yi, 0), transform.rotation);
-		btnDerInf.transform.SetParent (this.transform);
-		pos_btn_C = btnDerInf.GetComponent<Transform> ();
-		Debug.Log (" Se creo el boton = " + contador_r);
-		if (contador_r == r) {
-			pos_btn_C.GetComponent<Button> ().onClick.AddListener (contar);
-		}
-		StartCoroutine (playsound ());
-	}
-	public void InstanciarDerSuperior () {
-
-		//btnPrincipal.GetComponentInChildren<Text>().text = "Derecha Superior";
-		btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-		// GameObject btnDerSup = Instantiate(btnPrincipal.gameObject,new Vector3( Screen.width + 100 , (Screen.height/2) + 25  ,0),transform.rotation);
-		GameObject btnDerSup = Instantiate (btnPrincipal.gameObject, new Vector3 (Screen.width + xi, (Screen.height / 2) + yi, 0), transform.rotation);
-		btnDerSup.transform.SetParent (this.transform);
-		pos_btn_D = btnDerSup.GetComponent<Transform> ();
-		if (contador_r == r) {
-			pos_btn_D.GetComponent<Button> ().onClick.AddListener (contar);
-		}
-		StartCoroutine (playsound ());
-	}
 
 	IEnumerator playsound () {
 		Debug.Log ("reproducuiendo......");
@@ -470,6 +411,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 		}
 
 		if (contador_repeticiones == 0) {
+			saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,codigo_ubicacion_2,Menu_Aprendizaje_1.cod_color_2,Menu_Aprendizaje_1.cod_personaje_2);
 			if (contador == 0) {
 				contador = 10;
 				Destroy (pos_btn_A.gameObject);
@@ -584,6 +526,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 		if (id == 9) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (Menu_Aprendizaje_1.colora, imgA);
 			} else {
 				colors (Menu_Aprendizaje_1.colorb, imgA);
@@ -595,6 +538,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 			//solo la primera vez.
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez b");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (Menu_Aprendizaje_1.colora, imgB);
 			} else {
 				colors (Menu_Aprendizaje_1.colorb, imgB);
@@ -605,6 +549,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 		if (id == 11) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (Menu_Aprendizaje_1.colora, imgC);
 			} else {
 				colors (Menu_Aprendizaje_1.colorb, imgC);
@@ -615,6 +560,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 		if (id == 12) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (Menu_Aprendizaje_1.colora, imgD);
 			} else {
 				colors (Menu_Aprendizaje_1.colorb, imgD);
@@ -625,6 +571,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 		if (id == 13) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (Menu_Aprendizaje_1.colora, imgE);
 			} else {
 				colors (Menu_Aprendizaje_1.colorb, imgE);
@@ -635,6 +582,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 		if (id == 14) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (Menu_Aprendizaje_1.colora, imgF);
 			} else {
 				colors (Menu_Aprendizaje_1.colorb, imgF);
@@ -645,6 +593,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 		if (id == 15) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (Menu_Aprendizaje_1.colora, imgG);
 			} else {
 				colors (Menu_Aprendizaje_1.colorb, imgG);
@@ -655,6 +604,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 		if (id == 16) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (Menu_Aprendizaje_1.colora, imgH);
 			} else {
 				colors (Menu_Aprendizaje_1.colorb, imgH);
@@ -665,6 +615,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 		if (id == 17) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (Menu_Aprendizaje_1.colora, imgI);
 			} else {
 				colors (Menu_Aprendizaje_1.colorb, imgI);
@@ -672,6 +623,8 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 			contador = 8;
 			InstanciarPosI();
 		}
+
+				codigo_ubicacion_2 = id;
 
 	}
 
@@ -705,4 +658,23 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
 		dbcmd = null;
 		dbconn.Close ();
 	}
+
+			public void saveDetalleAprendizaje( int codigo_aprendizaje, int codigo_ubicacion, int codigo_color, int codigo_personaje ){
+		string conn = "URI=file:" + Application.dataPath + "/Recursos/BD/dbdata.db";
+		IDbConnection dbconn;
+		dbconn = (IDbConnection) new SqliteConnection(conn);	
+		dbconn.Open();
+		IDbCommand dbcmd = dbconn.CreateCommand();
+		string sqlQuery = "INSERT INTO detalle_aprendizaje" +
+		" (num_repeticiones, velocidad_detalle_apre, id_aprendizaje,id_ubicacion,id_color,id_personaje) Values ('" +
+		r + "','" + velocidad + "','" + codigo_aprendizaje + "','" + codigo_ubicacion + "','" + codigo_color + "','" + codigo_personaje + "')";
+		dbcmd.CommandText = sqlQuery;
+		dbcmd.ExecuteReader();
+		Debug.Log("Datos Guardados Corectamente!..");
+		dbcmd.Dispose();
+		dbcmd = null;
+		dbconn.Close();
+		dbconn = null;
+	}
+
 }

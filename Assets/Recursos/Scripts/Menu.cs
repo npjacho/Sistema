@@ -20,5 +20,8 @@ public class Menu : MonoBehaviour {
 	public void aprendizaje (){
 		SceneManager.LoadScene(8);
 	}
+	public void jugabilidad (){
+		SceneManager.LoadScene(14);
+	}
 
 }

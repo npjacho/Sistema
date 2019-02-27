@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/APRENDIZAJE/MENU_APRENDIZAJE_1.unity
+- path: Assets/Scenes/JUGABILIDAD/SELEC_LEVEL_JUGABILIDAD.unity
   isLoaded: 1
   isActive: 1

@@ -39,4 +39,8 @@ public class Selec_level : MonoBehaviour {
 		nivel = 4;
 		SceneManager.LoadScene(2);
 	}
+
+	public void regresar (){
+		SceneManager.LoadScene(0);
+	}
 }

@@ -30,6 +30,7 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
 	private int r =  Menu_Aprendizaje_1.num_repeticiones;
 	private int velocidad = Menu_Aprendizaje_1.velocidad_data;
 	int contador_repeticiones = 2;
+	private int codigo_ubicacion_2;
 	// Use this for initialization
 	void Start () {
 		btnMsg.SetActive (false);
@@ -249,6 +250,7 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
 		}
 
 		if (contador_repeticiones == 0) {
+			saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,codigo_ubicacion_2,Menu_Aprendizaje_1.cod_color_2,Menu_Aprendizaje_1.cod_personaje_2);
 			if (contador == 0) {
 				contador = 4;
 				Destroy (pos_btn_A.gameObject);
@@ -337,6 +339,7 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
 		if (id == 5) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors ( Menu_Aprendizaje_1.colora , imgA);
 			} else {
 				colors ( Menu_Aprendizaje_1.colorb, imgA);
@@ -348,6 +351,7 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
 			//solo la primera vez.
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez b");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (Menu_Aprendizaje_1.colora, imgB);
 			} else {
 				colors (Menu_Aprendizaje_1.colorb, imgB);
@@ -358,6 +362,7 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
 		if (id == 7) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (  Menu_Aprendizaje_1.colora , imgC);
 			} else {
 				colors ( Menu_Aprendizaje_1.colorb , imgC);
@@ -368,6 +373,7 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
 		if (id == 8) {
 			if (contador_repeticiones == 2) {
 				Debug.Log ("Solo la primera vez a");
+				saveDetalleAprendizaje(Menu_Aprendizaje_1.cod_aprendizaje,id,Menu_Aprendizaje_1.cod_color_1,Menu_Aprendizaje_1.cod_personaje_1);
 				colors (  Menu_Aprendizaje_1.colora, imgD);
 			} else {
 				colors ( Menu_Aprendizaje_1.colorb, imgD);
@@ -375,6 +381,7 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
 			contador = 3;
 			InstanciarDerSuperior ();
 		}
+		codigo_ubicacion_2 = id;
 
 	}
 
@@ -407,5 +414,22 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
 		dbcmd.Dispose ();
 		dbcmd = null;
 		dbconn.Close ();
+	}
+			public void saveDetalleAprendizaje( int codigo_aprendizaje, int codigo_ubicacion, int codigo_color, int codigo_personaje ){
+		string conn = "URI=file:" + Application.dataPath + "/Recursos/BD/dbdata.db";
+		IDbConnection dbconn;
+		dbconn = (IDbConnection) new SqliteConnection(conn);	
+		dbconn.Open();
+		IDbCommand dbcmd = dbconn.CreateCommand();
+		string sqlQuery = "INSERT INTO detalle_aprendizaje" +
+		" (num_repeticiones, velocidad_detalle_apre, id_aprendizaje,id_ubicacion,id_color,id_personaje) Values ('" +
+		r + "','" + velocidad + "','" + codigo_aprendizaje + "','" + codigo_ubicacion + "','" + codigo_color + "','" + codigo_personaje + "')";
+		dbcmd.CommandText = sqlQuery;
+		dbcmd.ExecuteReader();
+		Debug.Log("Datos Guardados Corectamente!..");
+		dbcmd.Dispose();
+		dbcmd = null;
+		dbconn.Close();
+		dbconn = null;
 	}
 }

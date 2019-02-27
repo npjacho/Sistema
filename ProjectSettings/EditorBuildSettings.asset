@@ -47,4 +47,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/APRENDIZAJE/AVANZADO_APRENDIZAJE.unity
     guid: cb3242d87abf4764090ef64af7890f7e
+  - enabled: 1
+    path: Assets/Scenes/JUGABILIDAD/LOGIN_JUGABILIDAD.unity
+    guid: 9ffcb5d3db223ff4eada6b3110fc6c10
+  - enabled: 1
+    path: Assets/Scenes/JUGABILIDAD/SELEC_LEVEL_JUGABILIDAD.unity
+    guid: 660c8f398bd29aa46ac04182008b55b9
   m_configObjects: {}

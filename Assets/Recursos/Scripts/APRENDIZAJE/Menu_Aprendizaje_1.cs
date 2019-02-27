@@ -198,6 +198,10 @@ public class Menu_Aprendizaje_1 : MonoBehaviour {
 		dbconn.Close ();
 	}
 
+	public void regresarMenu(){
+		SceneManager.LoadScene(0);
+	}
+
 
 
 	

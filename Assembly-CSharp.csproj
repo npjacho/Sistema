@@ -72,6 +72,8 @@
      <Compile Include="Assets\Recursos\Scripts\DesplazamientoIzquierdaAbajo.cs" />
      <Compile Include="Assets\Recursos\Scripts\DesplazamientoIzquierdaArriba.cs" />
      <Compile Include="Assets\Recursos\Scripts\INTERMEDIO.cs" />
+     <Compile Include="Assets\Recursos\Scripts\JUGABILIDAD\LOGIN_JUGABILIDAD.cs" />
+     <Compile Include="Assets\Recursos\Scripts\JUGABILIDAD\SELEC_LEVEL_JUGABILIDAD.cs" />
      <Compile Include="Assets\Recursos\Scripts\Menu.cs" />
      <Compile Include="Assets\Recursos\Scripts\Selec_level.cs" />
  <Reference Include="UnityEditor.StandardEvents">
