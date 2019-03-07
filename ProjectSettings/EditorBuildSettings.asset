@@ -53,4 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JUGABILIDAD/SELEC_LEVEL_JUGABILIDAD.unity
     guid: 660c8f398bd29aa46ac04182008b55b9
+  - enabled: 1
+    path: Assets/Scenes/JUGABILIDAD/BASICOA_JUGABILIDAD.unity
+    guid: ff716c852cc327b43bfeb6d054264ca0
   m_configObjects: {}

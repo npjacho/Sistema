@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/JUGABILIDAD/SELEC_LEVEL_JUGABILIDAD.unity
+- path: Assets/Scenes/JUGABILIDAD/BASICOA_JUGABILIDAD.unity
   isLoaded: 1
   isActive: 1
