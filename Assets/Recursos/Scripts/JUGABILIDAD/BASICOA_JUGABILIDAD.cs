@@ -10,6 +10,10 @@ using UnityEngine.UI;
 using System.Linq;
 
 public class BASICOA_JUGABILIDAD : MonoBehaviour {
+	private int valorDerecha = 0, valorIzquierda = 0;
+    private bool tocar_boton_derecho = true, tocar_boton_izquierdo = true;
+	public Text tiempo_boton_Derecha;
+    public Text tiempo_boton_Izquierda;
 
     public RectTransform panelA, panelB;
     private Image imgA, imgB;
@@ -17,9 +21,9 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
     public AudioClip donde_esta,audio_personaje_1,audio_personaje_2;
 
     public GameObject btnMsg;
-    public Button btn_izquierda;
+    public GameObject btn_izquierda;
     private Texture2D texturaIzquierda;
-    public Button btn_derecha;
+    public GameObject btn_derecha;
     private Texture2D texturaDerecha;
     rgb colorIzq = new rgb ();
     rgb colorDer = new rgb ();
@@ -120,8 +124,8 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
         dbconn.Close ();
         
     }
-
     public void interaccionPanelA(){
+        //Debug.Log( "Tiempo del Cronometro = " + CRONOMETRO.cuentaAtras );
         imgA.color = new Color(colorIzq.r,colorIzq.g,colorIzq.b); 
     }
     public void interaccionPanelASalir(){
@@ -136,17 +140,38 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
     }
 
     public void VerPersonaje1(){
-        btn_izquierda.GetComponent<Image>().sprite = Sprite.Create(texturaIzquierda, new Rect(0,0,256,256), new Vector2(0.5f,0.5f));
+        //btn_izquierda.GetComponent<Image>().sprite = Sprite.Create(texturaIzquierda, new Rect(0,0,256,256), new Vector2(0.5f,0.5f));
     }
 
     public void VerPersonaje2(){
-        btn_derecha.GetComponent<Image>().sprite = Sprite.Create(texturaDerecha, new Rect(0,0,256,256), new Vector2(0.5f,0.5f));
+        //btn_derecha.GetComponent<Image>().sprite = Sprite.Create(texturaDerecha, new Rect(0,0,256,256), new Vector2(0.5f,0.5f));
     }
 
     public void botonderecho(){
-        Debug.Log("Toque el boton");
-        btn_derecha.GetComponent<Renderer>().material.color = Color.red;
-     
+        valorIzquierda = 0;
+        tocar_boton_izquierdo = true;
+        if(tocar_boton_derecho){
+            valorDerecha++;
+        }
+		if(valorDerecha >= 100){
+			btn_derecha.GetComponent<Renderer>().material.color = Color.red;
+            tocar_boton_derecho = false;
+		}
+		tiempo_boton_Derecha.text = "" + valorDerecha;
+        tiempo_boton_Izquierda.text = ""+ valorIzquierda;
+    }
+    public void botonIzquierdo(){
+        valorDerecha = 0;
+        tocar_boton_derecho = true;
+        if(tocar_boton_izquierdo){
+            valorIzquierda++;
+        }
+		if(valorIzquierda >= 100){
+			btn_izquierda.GetComponent<Renderer>().material.color = Color.red;
+            tocar_boton_izquierdo = false;
+		}
+		tiempo_boton_Derecha.text = "" + valorDerecha;
+        tiempo_boton_Izquierda.text = ""+ valorIzquierda;
     }
 
     public void botonderechoSalir(){
@@ -160,6 +185,7 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
         yield return new WaitForSeconds (audioUbicacion.clip.length);
         audioUbicacion.clip = audio_personaje_1;
         audioUbicacion.Play ();
+        //INICIAR TIEMPO 1
     }
 
     IEnumerator playsound2 () {

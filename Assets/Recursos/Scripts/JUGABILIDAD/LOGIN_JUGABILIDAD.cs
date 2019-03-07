@@ -25,6 +25,8 @@ public class LOGIN_JUGABILIDAD : MonoBehaviour {
     public static List<int> codigosIntermedio = new List<int>();
     public static List<int> codigosAvanzado = new List<int>();
 
+    private bool siguiente = false;
+
     // Use this for initialization
     void Start () {
         fecha = System.DateTime.Now.ToString ("dd/MM/yyyy");
@@ -39,7 +41,11 @@ public class LOGIN_JUGABILIDAD : MonoBehaviour {
     public void login () {
         Debug.Log (txtUser.text + " --- " + txtPass.text);
         loginUsuario (txtUser.text, txtPass.text);
-        SceneManager.LoadScene (15);
+        if(siguiente == false){
+                
+        }else{
+            SceneManager.LoadScene (15);
+        }
 
     }
 
@@ -63,12 +69,14 @@ public class LOGIN_JUGABILIDAD : MonoBehaviour {
         dbcmd = null;
         dbconn.Close ();
         if (codigo_ususario == 0) {
+            siguiente = false;
             msg.text = "Usuario y/o Contraseña incorrecto!.. Intene otra vez.";
             txtUser.text = "";
             txtPass.text = "";
         } else {
             msg.text = "Usuario Encotrado!";
             nombre_usuario_log = user;
+            siguiente = true;
             verificarDatosAprendizaje (codigo_ususario, fecha);
         }
     }

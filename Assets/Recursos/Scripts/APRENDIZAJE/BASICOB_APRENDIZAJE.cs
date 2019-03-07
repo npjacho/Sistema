@@ -31,6 +31,8 @@ public class BASICOB_APRENDIZAJE : MonoBehaviour {
     int contador_repeticiones = 2;
 
     private int codigo_ubicacion_2;
+
+    private int numero_inicial;
     // Use this for initialization
     void Start () {
         btnMsg.SetActive (false);
@@ -39,7 +41,8 @@ public class BASICOB_APRENDIZAJE : MonoBehaviour {
         imgB = panelB.GetComponent<Image> ();
 
         contador_r = 1;
-        datosPosicion (UnityEngine.Random.Range (3, 5));
+        numero_inicial = UnityEngine.Random.Range (3, 5) ;
+        datosPosicion (numero_inicial);
 
     }
 
@@ -124,7 +127,13 @@ public class BASICOB_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_A.gameObject);
             imgA.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (3, 5));
+            if(numero_inicial == 3){
+                datosPosicion(4);
+            }else
+            {
+                datosPosicion(3);
+            }
+            //datosPosicion (UnityEngine.Random.Range (3, 5));
         }
         if (contador == 1 && contador_repeticiones != 0) {
 
@@ -133,7 +142,13 @@ public class BASICOB_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_B.gameObject);
             imgB.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (3, 5));
+            if(numero_inicial == 3){
+                datosPosicion(4);
+            }else
+            {
+                datosPosicion(3);
+            }
+            //datosPosicion (UnityEngine.Random.Range (3, 5));
         }
         if (contador_repeticiones == 0) {
             saveDetalleAprendizaje (Menu_Aprendizaje_1.cod_aprendizaje, codigo_ubicacion_2, Menu_Aprendizaje_1.cod_color_2, Menu_Aprendizaje_1.cod_personaje_2);

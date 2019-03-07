@@ -17,6 +17,8 @@ public class Menu_Aprendizaje_1 : MonoBehaviour {
     public static int cod_user, cod_aprendizaje, cod_color_1, cod_color_2, cod_personaje_1, cod_personaje_2, num_repeticiones, velocidad_data;
     public static string colora, colorb, nombre_user;
 
+    public Text txtMensaje;
+
     public static string fecha;
     void Start () {
         fecha = System.DateTime.Now.ToString ("dd/MM/yyyy");
@@ -133,9 +135,20 @@ public class Menu_Aprendizaje_1 : MonoBehaviour {
         Debug.Log ("Personaje 2 => clave = " + name + " valor =  " + id);
         cod_personaje_2 = id;
 
-        saveAprendizaje (fecha, cod_user);
 
-        SceneManager.LoadScene (9);
+        if(cod_color_1 == cod_color_2){
+            txtMensaje.text = "Seleccione Diferentes Colores y Personajes";
+        }
+        if(cod_personaje_1 == cod_personaje_2){
+            txtMensaje.tag = "Selecciones Diferentes Colores y Personajes";
+        }
+        if(cod_color_1 != cod_color_2 && cod_personaje_1 != cod_personaje_2){
+            saveAprendizaje (fecha, cod_user);
+            SceneManager.LoadScene (9);
+        }
+        
+
+        
 
     }
 

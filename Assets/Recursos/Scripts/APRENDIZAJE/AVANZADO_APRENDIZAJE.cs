@@ -31,10 +31,13 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
     private int velocidad = Menu_Aprendizaje_1.velocidad_data;
     int contador_repeticiones = 2;
     private int codigo_ubicacion_2;
+    int numero_inicial = 10;
+    int numero_final = 13;
     // Use this for initialization
     void Start () {
         btnMsg.SetActive (false);
         datosPersonaje (Menu_Aprendizaje_1.cod_personaje_1);
+        numero_inicial = UnityEngine.Random.Range (9, 18);
         imgA = panelA.GetComponent<Image> ();
         imgB = panelB.GetComponent<Image> ();
         imgC = panelC.GetComponent<Image> ();
@@ -45,7 +48,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
         imgH = panelH.GetComponent<Image> ();
         imgI = panelI.GetComponent<Image> ();
         contador_r = 1;
-        datosPosicion (UnityEngine.Random.Range (9, 18));
+        datosPosicion (numero_inicial);
 
     }
 
@@ -328,6 +331,8 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
         yield return new WaitForSeconds (audioUbicacion.clip.length);
         audioUbicacion.clip = b;
         audioUbicacion.Play ();
+        numero_final = UnityEngine.Random.Range (9, 18);
+        Debug.Log("Numero Aleatorio Final = " + numero_final );
     }
 
     void contar () {
@@ -338,7 +343,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_A.gameObject);
             imgA.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (9, 18));
+            datosPosicion (numero_final);
         }
         if (contador == 1 && contador_repeticiones != 0) {
 
@@ -347,14 +352,16 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_B.gameObject);
             imgB.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (9, 18));
+            //datosPosicion (UnityEngine.Random.Range (9, 18));
+            datosPosicion (numero_final);
         }
         if (contador == 2 && contador_repeticiones != 0) {
             Debug.Log (contador_repeticiones);
             Destroy (pos_btn_C.gameObject);
             imgC.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (9, 18));
+            //datosPosicion (UnityEngine.Random.Range (9, 18));
+            datosPosicion (numero_final);
         }
         if (contador == 3 && contador_repeticiones != 0) {
 
@@ -363,13 +370,15 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_D.gameObject);
             imgD.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (9, 18));
+            //datosPosicion (UnityEngine.Random.Range (9, 18));
+            datosPosicion (numero_final);
         }
         if (contador == 4 && contador_repeticiones != 0) {
             Destroy (pos_btn_E.gameObject);
             imgE.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (9, 18));
+            //datosPosicion (UnityEngine.Random.Range (9, 18));
+            datosPosicion (numero_final);
         }
         if (contador == 5 && contador_repeticiones != 0) {
 
@@ -378,7 +387,8 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_F.gameObject);
             imgF.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (9, 18));
+            //datosPosicion (UnityEngine.Random.Range (9, 18));
+            datosPosicion (numero_final);
         }
         if (contador == 6 && contador_repeticiones != 0) {
 
@@ -387,7 +397,8 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_G.gameObject);
             imgG.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (9, 18));
+            //datosPosicion (UnityEngine.Random.Range (9, 18));
+            datosPosicion (numero_final);
         }
         if (contador == 7 && contador_repeticiones != 0) {
 
@@ -396,7 +407,8 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_H.gameObject);
             imgH.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (9, 18));
+            //datosPosicion (UnityEngine.Random.Range (9, 18));
+            datosPosicion (numero_final);
         }
         if (contador == 8 && contador_repeticiones != 0) {
 
@@ -405,7 +417,8 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_I.gameObject);
             imgI.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (9, 18));
+            //datosPosicion (UnityEngine.Random.Range (9, 18));
+            datosPosicion (numero_final);
         }
 
         if (contador_repeticiones == 0) {

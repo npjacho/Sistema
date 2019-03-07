@@ -31,6 +31,8 @@ public class BASICOA_APRENDIZAJE : MonoBehaviour {
     private int velocidad = Menu_Aprendizaje_1.velocidad_data;
     int contador_repeticiones = 2;
     private int codigo_ubicacion_2;
+
+    private int numero_inicial;
     // Use this for initialization
     void Start () {
         btnMsg.SetActive (false);
@@ -39,7 +41,8 @@ public class BASICOA_APRENDIZAJE : MonoBehaviour {
         imgB = panelB.GetComponent<Image> ();
 
         contador_r = 1;
-        datosPosicion (UnityEngine.Random.Range (1, 3));
+        numero_inicial = UnityEngine.Random.Range (1, 3);
+        datosPosicion(numero_inicial);
 
     }
 
@@ -127,7 +130,12 @@ public class BASICOA_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_A.gameObject);
             imgA.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (1, 3));
+            if(numero_inicial == 1){
+                datosPosicion(2);
+            }else
+            {
+                datosPosicion(1);
+            }
         }
         if (contador == 1 && contador_repeticiones != 0) {
 
@@ -136,7 +144,12 @@ public class BASICOA_APRENDIZAJE : MonoBehaviour {
             Destroy (pos_btn_B.gameObject);
             imgB.color = Color.white;
             datosPersonaje (Menu_Aprendizaje_1.cod_personaje_2);
-            datosPosicion (UnityEngine.Random.Range (1, 3));
+            if(numero_inicial == 1){
+                datosPosicion(2);
+            }else
+            {
+                datosPosicion(1);
+            }
 
         }
         if (contador_repeticiones == 0) {
