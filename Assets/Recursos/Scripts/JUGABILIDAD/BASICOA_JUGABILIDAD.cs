@@ -10,8 +10,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BASICOA_JUGABILIDAD : MonoBehaviour {
+    public Text txtSalir;
+    public GameObject btnSalir;
     public Text txtFinal;
-private int intentos = 3;
+    private int intentos = 3;
     private int estado_juego = 1; // 1 personaje 1 o 2 personaje 2
     private String nombre_ubicacion;
     private int id_personaje_1, id_personaje_2, id_boton_derecha, id_boton_izquierda;
@@ -47,6 +49,8 @@ private int intentos = 3;
         texturaDerecha = new Texture2D (256, 256);
         txtcontinuar.text = "";
         txtFinal.text = "";
+        btnSalir.SetActive(false);
+        txtSalir.text = "";
         btnMsg.SetActive (false);
         Debug.Log (codigo_detalle_aprendizaje_1);
         Debug.Log (codigo_detalle_aprendizaje_2);
@@ -342,6 +346,9 @@ private int intentos = 3;
                 btn_izquierda.SetActive (false);
                 btn_derecha.SetActive (false);
                 txtFinal.text = "Fase terminada... presiona en continuar";
+                btnSalir.SetActive(true);
+                txtSalir.text = "Salir ";
+                valorContinuar = 0;
             }
 
 
@@ -359,7 +366,15 @@ private int intentos = 3;
         tiempo_boton_Izquierda.text = "A";
     }
 
-    public void botonderechoSalir () {
+    public void botonSalir () {
+        
+        valorContinuar++;
+        txtSalir.text = "SALIR " + valorContinuar;
+        if(valorContinuar >= 100){
+             valorContinuar = 0;
+             SceneManager.LoadScene (15);
+        }
+    
 
     }
 
@@ -386,6 +401,8 @@ private int intentos = 3;
         audioUbicacion.clip = audio_personaje_1;
         audioUbicacion.Play ();
         //INICIAR TIEMPO 1
+
+        
 
     }
 

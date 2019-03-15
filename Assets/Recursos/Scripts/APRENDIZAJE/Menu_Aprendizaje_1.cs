@@ -19,6 +19,8 @@ public class Menu_Aprendizaje_1 : MonoBehaviour {
 
     public Text txtMensaje;
 
+    public static int cod_user_inicializado = 0;
+
     public static string fecha;
     void Start () {
         fecha = System.DateTime.Now.ToString ("dd/MM/yyyy");
@@ -28,6 +30,7 @@ public class Menu_Aprendizaje_1 : MonoBehaviour {
         cargarPersonajes ();
         if (cod_user != 0) {
             Debug.Log ("Valor ya inicializados anteriormente");
+            cod_user_inicializado = cod_user;
         }
     }
 
@@ -143,7 +146,11 @@ public class Menu_Aprendizaje_1 : MonoBehaviour {
             txtMensaje.tag = "Selecciones Diferentes Colores y Personajes";
         }
         if(cod_color_1 != cod_color_2 && cod_personaje_1 != cod_personaje_2){
-            saveAprendizaje (fecha, cod_user);
+            if( cod_user_inicializado == 0 ){
+                saveAprendizaje (fecha, cod_user);
+            }else{
+                cod_user = cod_user_inicializado;
+            }
             SceneManager.LoadScene (9);
         }
         

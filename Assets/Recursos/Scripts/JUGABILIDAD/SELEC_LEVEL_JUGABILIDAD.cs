@@ -47,10 +47,10 @@ public class SELEC_LEVEL_JUGABILIDAD : MonoBehaviour {
         SceneManager.LoadScene (16);
     }
     public void cargarBasicoB(){
-        
+        SceneManager.LoadScene (17);
     }
     public void cargarIntermedio(){
-        
+         SceneManager.LoadScene (18);
     }
     public void cargarAvanzado(){
         
