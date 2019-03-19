@@ -11,6 +11,7 @@ public class Selec_level : MonoBehaviour {
     public static string nombre_nivel;
 
     void Start () {
+        Menu_Aprendizaje_1.cod_user = 0;
 
     }
 

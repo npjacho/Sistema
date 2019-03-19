@@ -89,7 +89,7 @@ public class BASICOB_JUGABILIDAD : MonoBehaviour {
             id_personaje_1 = reader.GetInt32 (3);
             imagen_personaje = (byte[]) reader["imagen_personaje"];
             son = (byte[]) reader["audio_personaje"];
-            if (nombre_ubicacion == "superior") {
+            if (nombre_ubicacion == "arriba") {
                 id_boton_superior = id_personaje_1;
                 colorSup.r = reader.GetInt32 (0);
                 colorSup.g = reader.GetInt32 (1);
@@ -104,7 +104,7 @@ public class BASICOB_JUGABILIDAD : MonoBehaviour {
         WAV sonido = new WAV (son);
         audio_personaje_1 = AudioClip.Create ("personaje_1", sonido.SampleCount, 1, sonido.Frequency, false, false);
         audio_personaje_1.SetData (sonido.LeftChannel, 0);
-        if (nombre_ubicacion == "superior") {
+        if (nombre_ubicacion == "arriba") {
             texturaSuperior.LoadImage (imagen_personaje);
         } else {
             texturaInferior.LoadImage (imagen_personaje);
@@ -136,7 +136,7 @@ public class BASICOB_JUGABILIDAD : MonoBehaviour {
             son = (byte[]) reader["audio_personaje"];
             imagen_personaje = (byte[]) reader["imagen_personaje"];
             Debug.Log (id_personaje_2);
-            if (nombre_ubicacion == "superior") {
+            if (nombre_ubicacion == "arriba") {
                 id_boton_superior = id_personaje_2;
                 colorSup.r = reader.GetInt32 (0);
                 colorSup.g = reader.GetInt32 (1);
@@ -151,7 +151,7 @@ public class BASICOB_JUGABILIDAD : MonoBehaviour {
         WAV sonido = new WAV (son);
         audio_personaje_2 = AudioClip.Create ("personaje_2", sonido.SampleCount, 1, sonido.Frequency, false, false);
         audio_personaje_2.SetData (sonido.LeftChannel, 0);
-        if (nombre_ubicacion == "superior") {
+        if (nombre_ubicacion == "arriba") {
             texturaSuperior.LoadImage (imagen_personaje);
         } else {
             texturaInferior.LoadImage (imagen_personaje);

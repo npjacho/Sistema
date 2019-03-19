@@ -2353,7 +2353,7 @@ MonoBehaviour:
   panelA: {fileID: 1766167372}
   panelB: {fileID: 1505729099}
   audioUbicacion: {fileID: 1363450781}
-  donde_esta: {fileID: 8300000, guid: 594b7644bd712c946893973f8e7777a6, type: 3}
+  donde_esta: {fileID: 8300000, guid: 7ce97bb33ef621a44abe5c8e020c6f49, type: 3}
   audio_personaje_1: {fileID: 0}
   audio_personaje_2: {fileID: 0}
   correcto: {fileID: 8300000, guid: 55e5b3365cc089d4ab61f064c0f652bb, type: 3}

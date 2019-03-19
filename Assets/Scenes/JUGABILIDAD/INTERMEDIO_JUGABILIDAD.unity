@@ -1075,7 +1075,7 @@ Transform:
   m_GameObject: {fileID: 537794782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.24232723, y: -0.09834418, z: 0.2484}
-  m_LocalScale: {x: 0.0405, y: 0.03216, z: 0.01}
+  m_LocalScale: {x: 0.09153, y: 0.055476, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -1511,7 +1511,7 @@ Transform:
   m_GameObject: {fileID: 733389205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.28, y: -0.09834418, z: 0.2484}
-  m_LocalScale: {x: 0.0405, y: 0.03216, z: 0.01}
+  m_LocalScale: {x: 0.09153, y: 0.055476, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -2173,7 +2173,7 @@ Transform:
   m_GameObject: {fileID: 1584779564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.244, y: 0.0847, z: 0.2484}
-  m_LocalScale: {x: 0.0405, y: 0.03216, z: 0.01}
+  m_LocalScale: {x: 0.09153, y: 0.055476, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -2560,7 +2560,7 @@ Transform:
   m_GameObject: {fileID: 1917270191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.28, y: 0.088, z: 0.2484}
-  m_LocalScale: {x: 0.0405, y: 0.03216, z: 0.01}
+  m_LocalScale: {x: 0.09153, y: 0.055476, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -3010,7 +3010,7 @@ MonoBehaviour:
   txtC: {fileID: 186169656}
   txtD: {fileID: 356255759}
   audioUbicacion: {fileID: 1363450781}
-  donde_esta: {fileID: 8300000, guid: 594b7644bd712c946893973f8e7777a6, type: 3}
+  donde_esta: {fileID: 8300000, guid: 7ce97bb33ef621a44abe5c8e020c6f49, type: 3}
   correcto: {fileID: 8300000, guid: 55e5b3365cc089d4ab61f064c0f652bb, type: 3}
   intenta_otra_vez: {fileID: 8300000, guid: 8569011b5591a6840a4d436b83e44eb8, type: 3}
   audio_personaje_1: {fileID: 0}

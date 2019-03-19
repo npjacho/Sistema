@@ -774,7 +774,7 @@ Transform:
   m_GameObject: {fileID: 675988901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.1456688, y: 0.001, z: 0.198}
-  m_LocalScale: {x: 0.06, y: 0.03, z: 0.01}
+  m_LocalScale: {x: 0.0945, y: 0.07105781, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -906,6 +906,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694fa2c365c22de4187bdf0e829c54ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tiempo_reaccion: 
+  tiempo_cuadrado: 
+  tiempo_boton: 
+  acierto_bd: 0
   txtSalir: {fileID: 650281856}
   btnSalir: {fileID: 1160732814}
   txtFinal: {fileID: 944642740}
@@ -917,7 +921,7 @@ MonoBehaviour:
   panelA: {fileID: 1095902864}
   panelB: {fileID: 2027496384}
   audioUbicacion: {fileID: 1363450781}
-  donde_esta: {fileID: 8300000, guid: 594b7644bd712c946893973f8e7777a6, type: 3}
+  donde_esta: {fileID: 8300000, guid: 7ce97bb33ef621a44abe5c8e020c6f49, type: 3}
   audio_personaje_1: {fileID: 0}
   audio_personaje_2: {fileID: 0}
   correcto: {fileID: 8300000, guid: 55e5b3365cc089d4ab61f064c0f652bb, type: 3}
@@ -1790,7 +1794,7 @@ Transform:
   m_GameObject: {fileID: 1364943668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.14217964, y: 0.001, z: 0.198}
-  m_LocalScale: {x: 0.06, y: 0.03, z: 0.01}
+  m_LocalScale: {x: 0.0945, y: 0.07105781, z: 0.01}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -1968,6 +1972,46 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39d18871c11b53c4082d8202e3db68a3, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1715495580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715495582}
+  - component: {fileID: 1715495581}
+  m_Layer: 0
+  m_Name: Cronometro_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1715495581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1715495580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c86df33a96f4fc4bb08014135a5b060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1715495582
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1715495580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.07362752, y: -0.009578797, z: 0.19919994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1724240782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 464466, guid: 869d20cdda15af24aab9e72b5f2eec78,
@@ -2559,3 +2603,43 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!1 &2139135575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2139135577}
+  - component: {fileID: 2139135576}
+  m_Layer: 0
+  m_Name: Cronometro
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2139135576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2139135575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734d3a84f0753f746bdd796981795214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2139135577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2139135575}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.07362752, y: -0.009578797, z: 0.19919994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

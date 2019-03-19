@@ -29,8 +29,9 @@ public class LOGIN_JUGABILIDAD : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        
         fecha = System.DateTime.Now.ToString ("dd/MM/yyyy");
-        lblfecha.text = fecha;
+        lblfecha.text = "Fecha = " + fecha;
     }
 
     // Update is called once per frame
@@ -163,6 +164,10 @@ public class LOGIN_JUGABILIDAD : MonoBehaviour {
         dbcmd.Dispose ();
         dbcmd = null;
         dbconn.Close ();
+    }
+
+    public void menuInicial(){
+        SceneManager.LoadScene (0);
     }
 
 }

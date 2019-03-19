@@ -53,6 +53,6 @@ public class SELEC_LEVEL_JUGABILIDAD : MonoBehaviour {
          SceneManager.LoadScene (18);
     }
     public void cargarAvanzado(){
-        
+         SceneManager.LoadScene (19);
     }
 }

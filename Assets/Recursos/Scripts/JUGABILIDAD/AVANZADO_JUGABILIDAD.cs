@@ -12,8 +12,8 @@ using UnityEngine.UI;
 public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 
 	//Salir
-	//public Text txtSalir;
-	//public GameObject btnSalir;
+	public Text txtSalir;
+	public GameObject btnSalir;
 
 	private int estado_juego = 1; // 1 personaje 1 o 2 personaje 2
 
@@ -50,8 +50,8 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 	private Image imgA, imgB, imgC, imgD;
 	private Image imgE, imgF, imgG, imgH, imgI;
 	//Codigos del la vista nivel.
-	private int codigo_detalle_aprendizaje_1 = LOGIN_JUGABILIDAD.codigosIntermedio.ElementAt (0);
-	private int codigo_detalle_aprendizaje_2 = LOGIN_JUGABILIDAD.codigosIntermedio.ElementAt (1);
+	private int codigo_detalle_aprendizaje_1 =  LOGIN_JUGABILIDAD.codigosAvanzado.ElementAt (0);
+	private int codigo_detalle_aprendizaje_2 = LOGIN_JUGABILIDAD.codigosAvanzado.ElementAt (1);
 
 	//Botones en GameObject 4.
 	public GameObject boton_pos_A, boton_pos_B, boton_pos_C, boton_pos_D;
@@ -65,9 +65,13 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 	//Colores de los cuadrantes.
 	private rgb Color_cuadrante_1, Color_cuadrante_2, Color_cuadrante_3, Color_cuadrante_4;
 	private rgb Color_cuadrante_5, Color_cuadrante_6, Color_cuadrante_7, Color_cuadrante_8, Color_cuadrante_9;
+
+	//Cronometro
+	
 	// Use this for initialization
 	void Start () {
-		//btnSalir.SetActive(false);
+		
+		btnSalir.SetActive(false);
 		txtContinuar.text = "";
 		btnContinuar.SetActive (false);
 		Debug.Log (codigo_detalle_aprendizaje_1);
@@ -76,11 +80,11 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 		imgB = panelB.GetComponent<Image> ();
 		imgC = panelC.GetComponent<Image> ();
 		imgD = panelD.GetComponent<Image> ();
-		imgE = panelA.GetComponent<Image> ();
-		imgF = panelB.GetComponent<Image> ();
-		imgG = panelC.GetComponent<Image> ();
-		imgG = panelD.GetComponent<Image> ();
-		imgI = panelD.GetComponent<Image> ();
+		imgE = panelE.GetComponent<Image> ();
+		imgF = panelF.GetComponent<Image> ();
+		imgG = panelG.GetComponent<Image> ();
+		imgH = panelH.GetComponent<Image> ();
+		imgI = panelI.GetComponent<Image> ();
 		obtenerDatos1 (codigo_detalle_aprendizaje_1);
 		obtenerDatos2 (codigo_detalle_aprendizaje_2);
 
@@ -242,65 +246,65 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 			imagen_personaje = (byte[]) reader["imagen_personaje"];
 			son = (byte[]) reader["audio_personaje"];
 
-				if (nombre_ubicacion == "izquierda arriba") {
+			if (nombre_ubicacion == "izquierda arriba") {
 				Color_cuadrante_1 = new rgb ();
-				id_boton_1 = id_personaje_1;
+				id_boton_1 = id_personaje_2;
 				Color_cuadrante_1.r = reader.GetInt32 (0);
 				Color_cuadrante_1.g = reader.GetInt32 (1);
 				Color_cuadrante_1.b = reader.GetInt32 (2);
 			}
 			if (nombre_ubicacion == "izquierda abajo") {
 				Color_cuadrante_2 = new rgb ();
-				id_boton_2 = id_personaje_1;
+				id_boton_2 = id_personaje_2;
 				Color_cuadrante_2.r = reader.GetInt32 (0);
 				Color_cuadrante_2.g = reader.GetInt32 (1);
 				Color_cuadrante_2.b = reader.GetInt32 (2);
 			}
 			if (nombre_ubicacion == "derecha abajo") {
 				Color_cuadrante_3 = new rgb ();
-				id_boton_3 = id_personaje_1;
+				id_boton_3 = id_personaje_2;
 				Color_cuadrante_3.r = reader.GetInt32 (0);
 				Color_cuadrante_3.g = reader.GetInt32 (1);
 				Color_cuadrante_3.b = reader.GetInt32 (2);
 			}
 			if (nombre_ubicacion == "derecha arriba") {
 				Color_cuadrante_4 = new rgb ();
-				id_boton_4 = id_personaje_1;
+				id_boton_4 = id_personaje_2;
 				Color_cuadrante_4.r = reader.GetInt32 (0);
 				Color_cuadrante_4.g = reader.GetInt32 (1);
 				Color_cuadrante_4.b = reader.GetInt32 (2);
 			}
 			if (nombre_ubicacion == "izquierda medio") {
 				Color_cuadrante_5 = new rgb ();
-				id_boton_5 = id_personaje_1;
+				id_boton_5 = id_personaje_2;
 				Color_cuadrante_5.r = reader.GetInt32 (0);
 				Color_cuadrante_5.g = reader.GetInt32 (1);
 				Color_cuadrante_5.b = reader.GetInt32 (2);
 			}
 			if (nombre_ubicacion == "abajo medio") {
 				Color_cuadrante_6 = new rgb ();
-				id_boton_6 = id_personaje_1;
+				id_boton_6 = id_personaje_2;
 				Color_cuadrante_6.r = reader.GetInt32 (0);
 				Color_cuadrante_6.g = reader.GetInt32 (1);
 				Color_cuadrante_6.b = reader.GetInt32 (2);
 			}
 			if (nombre_ubicacion == "derecha medio") {
 				Color_cuadrante_7 = new rgb ();
-				id_boton_7 = id_personaje_1;
+				id_boton_7 = id_personaje_2;
 				Color_cuadrante_7.r = reader.GetInt32 (0);
 				Color_cuadrante_7.g = reader.GetInt32 (1);
 				Color_cuadrante_7.b = reader.GetInt32 (2);
 			}
 			if (nombre_ubicacion == "arriba medio") {
 				Color_cuadrante_8 = new rgb ();
-				id_boton_8 = id_personaje_1;
+				id_boton_8 = id_personaje_2;
 				Color_cuadrante_8.r = reader.GetInt32 (0);
 				Color_cuadrante_8.g = reader.GetInt32 (1);
 				Color_cuadrante_8.b = reader.GetInt32 (2);
 			}
 			if (nombre_ubicacion == "medio centro") {
 				Color_cuadrante_9 = new rgb ();
-				id_boton_9 = id_personaje_1;
+				id_boton_9 = id_personaje_2;
 				Color_cuadrante_9.r = reader.GetInt32 (0);
 				Color_cuadrante_9.g = reader.GetInt32 (1);
 				Color_cuadrante_9.b = reader.GetInt32 (2);
@@ -310,7 +314,6 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 		audio_personaje_2 = AudioClip.Create ("personaje_2", sonido.SampleCount, 1, sonido.Frequency, false, false);
 		audio_personaje_2.SetData (sonido.LeftChannel, 0);
 
-		
 		if (nombre_ubicacion == "izquierda arriba") {
 			textura_pos_A = new Texture2D (256, 256);
 			textura_pos_A.LoadImage (imagen_personaje);
@@ -355,7 +358,9 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 		nombre_ubicacion = "";
 	}
 
+
 	IEnumerator playsound (AudioClip sonido) {
+		
 		Debug.Log ("reproducuiendo......");
 		audioUbicacion.clip = donde_esta;
 		audioUbicacion.Play ();
@@ -363,7 +368,10 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 		audioUbicacion.clip = sonido;
 		audioUbicacion.Play ();
 		//INICIAR TIEMPO 1
+		CRONOMETRO.TimerStart();
 	}
+
+
 
 	public void contactopanelA () {
 		if (id_boton_1 == id_personaje_1) {
@@ -373,6 +381,8 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 		} else {
 			imgA.color = new Color (255, 255, 255);
 		}
+		
+		
 	}
 	public void fincontactopanelA () {
 		imgA.color = new Color32 (255, 255, 255, 100);
@@ -420,10 +430,85 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 		imgD.color = new Color32 (255, 255, 255, 100);
 	}
 
+	public void contactopanelE () {
+		if (id_boton_5 == id_personaje_1) {
+			imgE.color = new Color (Color_cuadrante_5.r, Color_cuadrante_5.g, Color_cuadrante_5.b);
+		} else if (id_boton_5 == id_personaje_2) {
+			imgE.color = new Color (Color_cuadrante_5.r, Color_cuadrante_5.g, Color_cuadrante_5.b);
+		} else {
+			imgE.color = new Color (255, 255, 255);
+		}
+	}
+
+	public void fincontactopanelE () {
+		imgE.color = new Color32 (255, 255, 255, 100);
+	}
+
+	public void contactopanelF () {
+		if (id_boton_6 == id_personaje_1) {
+			imgF.color = new Color (Color_cuadrante_6.r, Color_cuadrante_6.g, Color_cuadrante_6.b);
+		} else if (id_boton_6 == id_personaje_2) {
+			imgF.color = new Color (Color_cuadrante_6.r, Color_cuadrante_6.g, Color_cuadrante_6.b);
+		} else {
+			imgF.color = new Color (255, 255, 255);
+		}
+	}
+
+	public void fincontactopanelF () {
+		imgF.color = new Color32 (255, 255, 255, 100);
+	}
+
+	public void contactopanelG () {
+		if (id_boton_7 == id_personaje_1) {
+			imgG.color = new Color (Color_cuadrante_7.r, Color_cuadrante_7.g, Color_cuadrante_7.b);
+		} else if (id_boton_7 == id_personaje_2) {
+			imgG.color = new Color (Color_cuadrante_7.r, Color_cuadrante_7.g, Color_cuadrante_7.b);
+		} else {
+			imgG.color = new Color (255, 255, 255);
+		}
+	}
+
+	public void fincontactopanelG () {
+		imgG.color = new Color32 (255, 255, 255, 100);
+	}
+
+	public void contactopanelH () {
+		if (id_boton_8 == id_personaje_1) {
+			imgH.color = new Color (Color_cuadrante_8.r, Color_cuadrante_8.g, Color_cuadrante_8.b);
+		} else if (id_boton_8 == id_personaje_2) {
+			imgH.color = new Color (Color_cuadrante_8.r, Color_cuadrante_8.g, Color_cuadrante_8.b);
+		} else {
+			imgH.color = new Color (255, 255, 255);
+		}
+	}
+
+	public void fincontactopanelH () {
+		imgH.color = new Color32 (255, 255, 255, 100);
+	}
+
+		public void contactopanelI () {
+		if (id_boton_9 == id_personaje_1) {
+			imgI.color = new Color (Color_cuadrante_9.r, Color_cuadrante_9.g, Color_cuadrante_9.b);
+		} else if (id_boton_9 == id_personaje_2) {
+			imgI.color = new Color (Color_cuadrante_9.r, Color_cuadrante_9.g, Color_cuadrante_9.b);
+		} else {
+			imgI.color = new Color (255, 255, 255);
+		}
+	}
+
+	public void fincontactopanelI () {
+		imgI.color = new Color32 (255, 255, 255, 100);
+	}
+
 	public void contacoBotonA () {
 		valorB = 0;
 		valorC = 0;
 		valorD = 0;
+		valorE = 0;
+		valorF = 0;
+		valorG = 0;
+		valorH = 0;
+		valorI = 0;
 		valorA++;
 		if (valorA >= 100) {
 			//desaparecen los 4 botones.
@@ -465,7 +550,7 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 
 			}
 		}
-		textoBotones (valorA, valorB, valorC, valorD);
+		textoBotones (valorA, valorB, valorC, valorD, valorE, valorF, valorG, valorH, valorI);
 
 	}
 
@@ -473,6 +558,11 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 		valorA = 0;
 		valorC = 0;
 		valorD = 0;
+		valorE = 0;
+		valorF = 0;
+		valorG = 0;
+		valorH = 0;
+		valorI = 0;
 		valorB++;
 		if (valorB >= 100) {
 			ocultarCubosABCD ();
@@ -512,12 +602,17 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 
 			}
 		}
-		textoBotones (valorA, valorB, valorC, valorD);
+		textoBotones (valorA, valorB, valorC, valorD, valorE, valorF, valorG, valorH, valorI);
 	}
 	public void contacoBotonC () {
 		valorB = 0;
 		valorA = 0;
 		valorD = 0;
+		valorE = 0;
+		valorF = 0;
+		valorG = 0;
+		valorH = 0;
+		valorI = 0;
 		valorC++;
 		if (valorC >= 100) {
 			ocultarCubosABCD ();
@@ -557,12 +652,17 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 
 			}
 		}
-		textoBotones (valorA, valorB, valorC, valorD);
+		textoBotones (valorA, valorB, valorC, valorD, valorE, valorF, valorG, valorH, valorI);
 	}
 	public void contacoBotonD () {
 		valorB = 0;
 		valorC = 0;
 		valorA = 0;
+		valorE = 0;
+		valorF = 0;
+		valorG = 0;
+		valorH = 0;
+		valorI = 0;;
 		valorD++;
 		if (valorD >= 100) {
 			ocultarCubosABCD ();
@@ -602,7 +702,262 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 
 			}
 		}
-		textoBotones (valorA, valorB, valorC, valorD);
+		textoBotones (valorA, valorB, valorC, valorD, valorE, valorF, valorG, valorH, valorI);
+	}
+
+	public void contacoBotonE () {
+		valorA = 0;
+		valorB = 0;
+		valorC = 0;
+		valorD = 0;
+		valorF = 0;
+		valorG = 0;
+		valorH = 0;
+		valorI = 0;
+		valorE++;
+		if (valorE >= 100) {
+			ocultarCubosABCD ();
+			//indicar imagen, en el caso de existir
+			if (textura_pos_E == null) {
+				Debug.Log ("No ahy imagen");
+			} else {
+				InstanciaIzquierdaMedio ();
+			}
+			if (estado_juego == 1) {
+				if (id_personaje_1 == id_boton_5) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
+					ACIERTOS = 1;
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 0;
+				}
+			}
+
+			if (estado_juego == 2) {
+				if (id_personaje_2 == id_boton_5) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
+					ACIERTOS = 3;
+
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 2;
+				}
+
+			}
+		}
+		textoBotones (valorA, valorB, valorC, valorD, valorE, valorF, valorG, valorH, valorI);
+	}
+
+	public void contacoBotonF () {
+		valorA = 0;
+		valorB = 0;
+		valorC = 0;
+		valorD = 0;
+		valorE = 0;
+		valorG = 0;
+		valorH = 0;
+		valorI = 0;
+		valorF++;
+		if (valorF >= 100) {
+			ocultarCubosABCD ();
+			//indicar imagen, en el caso de existir
+			if (textura_pos_F == null) {
+				Debug.Log ("No ahy imagen");
+			} else {
+				InstanciaArribaDerecha ();
+			}
+			if (estado_juego == 1) {
+				if (id_personaje_1 == id_boton_6) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
+					ACIERTOS = 1;
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 0;
+				}
+			}
+
+			if (estado_juego == 2) {
+				if (id_personaje_2 == id_boton_6) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
+					ACIERTOS = 3;
+
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 2;
+				}
+
+			}
+		}
+		textoBotones (valorA, valorB, valorC, valorD, valorE, valorF, valorG, valorH, valorI);
+	}
+
+	public void contacoBotonG () {
+		valorA = 0;
+		valorB = 0;
+		valorC = 0;
+		valorD = 0;
+		valorE = 0;
+		valorF = 0;
+		valorH = 0;
+		valorI = 0;
+		valorG++;
+		if (valorG >= 100) {
+			ocultarCubosABCD ();
+			//indicar imagen, en el caso de existir
+			if (textura_pos_G == null) {
+				Debug.Log ("No ahy imagen");
+			} else {
+				InstanciaArribaDerecha ();
+			}
+			if (estado_juego == 1) {
+				if (id_personaje_1 == id_boton_7) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
+					ACIERTOS = 1;
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 0;
+				}
+			}
+
+			if (estado_juego == 2) {
+				if (id_personaje_2 == id_boton_7) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
+					ACIERTOS = 3;
+
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 2;
+				}
+
+			}
+		}
+		textoBotones (valorA, valorB, valorC, valorD, valorE, valorF, valorG, valorH, valorI);
+	}
+
+	public void contacoBotonH () {
+		valorA = 0;
+		valorB = 0;
+		valorC = 0;
+		valorD = 0;
+		valorE = 0;
+		valorF = 0;
+		valorG = 0;
+		valorH++;
+		valorI = 0;
+		if (valorH >= 100) {
+			ocultarCubosABCD ();
+			//indicar imagen, en el caso de existir
+			if (textura_pos_H == null) {
+				Debug.Log ("No ahy imagen");
+			} else {
+				InstanciaArribaDerecha ();
+			}
+			if (estado_juego == 1) {
+				if (id_personaje_1 == id_boton_8) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
+					ACIERTOS = 1;
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 0;
+				}
+			}
+
+			if (estado_juego == 2) {
+				if (id_personaje_2 == id_boton_8) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
+					ACIERTOS = 3;
+
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 2;
+				}
+
+			}
+		}
+		textoBotones (valorA, valorB, valorC, valorD, valorE, valorF, valorG, valorH, valorI);
+	}
+
+	public void contacoBotonI () {
+		valorA = 0;
+		valorB = 0;
+		valorC = 0;
+		valorD = 0;
+		valorE = 0;
+		valorG = 0;
+		valorH = 0;
+		valorF = 0;
+		valorI++;
+		if (valorI >= 100) {
+			ocultarCubosABCD ();
+			//indicar imagen, en el caso de existir
+			if (textura_pos_I == null) {
+				Debug.Log ("No ahy imagen");
+			} else {
+				InstanciaArribaDerecha ();
+			}
+			if (estado_juego == 1) {
+				if (id_personaje_1 == id_boton_9) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
+					ACIERTOS = 1;
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 0;
+				}
+			}
+
+			if (estado_juego == 2) {
+				if (id_personaje_2 == id_boton_9) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
+					ACIERTOS = 3;
+
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 2;
+				}
+
+			}
+		}
+		textoBotones (valorA, valorB, valorC, valorD, valorE, valorF, valorG, valorH, valorI);
 	}
 
 	public void ocultarCubosABCD () {
@@ -610,17 +965,32 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 		txtB.text = "";
 		txtC.text = "";
 		txtD.text = "";
+		txtE.text = "";
+		txtF.text = "";
+		txtG.text = "";
+		txtH.text = "";
+		txtI.text = "";
 		txtContinuar.text = "CONTINUAR 0";
 		boton_pos_A.SetActive (false);
 		boton_pos_B.SetActive (false);
 		boton_pos_C.SetActive (false);
 		boton_pos_D.SetActive (false);
+		boton_pos_E.SetActive (false);
+		boton_pos_F.SetActive (false);
+		boton_pos_G.SetActive (false);
+		boton_pos_H.SetActive (false);
+		boton_pos_I.SetActive (false);
 		btnContinuar.SetActive (true);
 		valorContinuar = 0;
 		valorB = 0;
 		valorC = 0;
 		valorA = 0;
 		valorD = 0;
+		valorE = 0;
+		valorF = 0;
+		valorG = 0;
+		valorH = 0;
+		valorI = 0;
 	}
 
 	public void mostrarCuboTextoABCD () {
@@ -628,20 +998,36 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 		txtB.text = "B";
 		txtC.text = "C";
 		txtD.text = "D";
+		txtE.text = "E";
+		txtF.text = "F";
+		txtG.text = "G";
+		txtH.text = "H";
+		txtI.text = "I";
 		txtContinuar.text = "";
 		boton_pos_A.SetActive (true);
 		boton_pos_B.SetActive (true);
 		boton_pos_C.SetActive (true);
 		boton_pos_D.SetActive (true);
+		boton_pos_E.SetActive (true);
+		boton_pos_F.SetActive (true);
+		boton_pos_G.SetActive (true);
+		boton_pos_H.SetActive (true);
+		boton_pos_I.SetActive (true);
 		btnContinuar.SetActive (false);
 		valorContinuar = 0;
 	}
 
-	public void textoBotones (int a, int b, int c, int d) {
+	public void textoBotones (int a, int b, int c, int d, int e, int f, int g, int h, int i) {
 		txtA.text = "" + a;
 		txtB.text = "" + b;
 		txtC.text = "" + c;
 		txtD.text = "" + d;
+		txtE.text = "" + e;
+		txtF.text = "" + f;
+		txtG.text = "" + g;
+		txtH.text = "" + h;
+		txtI.text = "" + i;
+
 	}
 
 	public void continuar () {
@@ -664,10 +1050,10 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 			}
 			if (ACIERTOS == 3) {
 				txtContinuar.text = "";
-				// txtSalir.text = "Salir ";
+				txtSalir.text = "Salir ";
 				btnContinuar.SetActive (false);
 				Debug.Log ("Fin de fase");
-				//	btnSalir.SetActive(true);
+				btnSalir.SetActive(true);
 				valorContinuar = 0;
 			}
 
@@ -677,7 +1063,7 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 	public void botonSalir () {
 
 		valorContinuar++;
-		//txtSalir.text = "SALIR " + valorContinuar;
+		txtSalir.text = "SALIR " + valorContinuar;
 		if (valorContinuar >= 100) {
 			valorContinuar = 0;
 			SceneManager.LoadScene (15);
@@ -685,9 +1071,11 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 
 	}
 
+	
+
 	public void InstanciaArribaIzquierda () {
 		btnPrinciapl.GetComponent<Image> ().sprite = Sprite.Create (textura_pos_A, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (-0.3f, 0.1f, 0.3f), transform.rotation);
+		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (-0.4f, 0.3f, 0.5f), transform.rotation);
 		img.transform.SetParent (this.transform);
 		img.transform.localScale = new Vector3 (1f, 1f, 0f);
 		imagen_boton_A = img.GetComponent<Transform> ();
@@ -695,24 +1083,64 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 
 	public void InstanciaAbajoIzquierda () {
 		btnPrinciapl.GetComponent<Image> ().sprite = Sprite.Create (textura_pos_B, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (-0.3f, -0.1f, 0.3f), transform.rotation);
+		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (-0.4f, -0.3f, 0.5f), transform.rotation);
 		img.transform.SetParent (this.transform);
 		img.transform.localScale = new Vector3 (1f, 1f, 0f);
 		imagen_boton_B = img.GetComponent<Transform> ();
 	}
 	public void InstanciaAbajoDerecha () {
 		btnPrinciapl.GetComponent<Image> ().sprite = Sprite.Create (textura_pos_C, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (0.3f, -0.1f, 0.3f), transform.rotation);
+		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (0.4f, -0.3f, 0.5f), transform.rotation);
 		img.transform.SetParent (this.transform);
 		img.transform.localScale = new Vector3 (1f, 1f, 0f);
 		imagen_boton_C = img.GetComponent<Transform> ();
 	}
 	public void InstanciaArribaDerecha () {
 		btnPrinciapl.GetComponent<Image> ().sprite = Sprite.Create (textura_pos_D, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (0.3f, 0.1f, 0.3f), transform.rotation);
+		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (0.4f, 0.3f, 0.3f), transform.rotation);
 		img.transform.SetParent (this.transform);
 		img.transform.localScale = new Vector3 (1f, 1f, 0f);
 		imagen_boton_D = img.GetComponent<Transform> ();
+	}
+
+	public void InstanciaIzquierdaMedio () {
+		btnPrinciapl.GetComponent<Image> ().sprite = Sprite.Create (textura_pos_E, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
+		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (0.4f, 0.1f, 0.3f), transform.rotation);
+		img.transform.SetParent (this.transform);
+		img.transform.localScale = new Vector3 (1f, 1f, 0f);
+		imagen_boton_E = img.GetComponent<Transform> ();
+	}
+
+	public void InstanciaAbajoMedio () {
+		btnPrinciapl.GetComponent<Image> ().sprite = Sprite.Create (textura_pos_F, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
+		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (0.4f, 0f, 0.3f), transform.rotation);
+		img.transform.SetParent (this.transform);
+		img.transform.localScale = new Vector3 (1f, 1f, 0f);
+		imagen_boton_F = img.GetComponent<Transform> ();
+	}
+
+	public void InstanciaDerechaMedio () {
+		btnPrinciapl.GetComponent<Image> ().sprite = Sprite.Create (textura_pos_G, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
+		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (0.4f, 0f, 0.5f), transform.rotation);
+		img.transform.SetParent (this.transform);
+		img.transform.localScale = new Vector3 (1f, 1f, 0f);
+		imagen_boton_G = img.GetComponent<Transform> ();
+	}
+
+	public void InstanciaArribaMedio () {
+		btnPrinciapl.GetComponent<Image> ().sprite = Sprite.Create (textura_pos_H, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
+		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (0f, 0.3f, 0.5f), transform.rotation);
+		img.transform.SetParent (this.transform);
+		img.transform.localScale = new Vector3 (1f, 1f, 0f);
+		imagen_boton_H = img.GetComponent<Transform> ();
+	}
+
+	public void InstanciaMedioCentro () {
+		btnPrinciapl.GetComponent<Image> ().sprite = Sprite.Create (textura_pos_I, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
+		GameObject img = Instantiate (btnPrinciapl.gameObject, new Vector3 (0.1f, 0.1f, 0.5f), transform.rotation);
+		img.transform.SetParent (this.transform);
+		img.transform.localScale = new Vector3 (1f, 1f, 0f);
+		imagen_boton_I = img.GetComponent<Transform> ();
 	}
 
 }

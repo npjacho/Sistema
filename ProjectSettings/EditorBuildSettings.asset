@@ -62,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JUGABILIDAD/INTERMEDIO_JUGABILIDAD.unity
     guid: dde8d0688ea020141a0ae4c3890b6eb4
+  - enabled: 1
+    path: Assets/Scenes/JUGABILIDAD/AVANZADO_JUGABILIDAD.unity
+    guid: 64c20585344053a43b7aa3d20b736a80
   m_configObjects: {}

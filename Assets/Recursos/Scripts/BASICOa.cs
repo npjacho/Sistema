@@ -96,7 +96,7 @@ public class BASICOa : MonoBehaviour {
             }
             if (pos_btn_B.position.x <= ((Screen.width / 2) + xi)) {
                 if (contador_r > 1) {
-                    Destroy (pos_btn_B.gameObject, 1f);
+                    Destroy (pos_btn_B.gameObject);
                     InstanciarDer ();
                     contador_r--;
                     Debug.Log (contador_r);
