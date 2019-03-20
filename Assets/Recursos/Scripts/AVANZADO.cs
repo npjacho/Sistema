@@ -208,6 +208,7 @@ public class AVANZADO : MonoBehaviour {
         if (contador >= 9) {
             txtMsg.enabled = true;
             if (Input.GetKeyDown (KeyCode.R)) {
+                btnPrincipal.GetComponentInChildren<Text> ().text = "";
                 SceneManager.LoadScene (1);
             }
         }

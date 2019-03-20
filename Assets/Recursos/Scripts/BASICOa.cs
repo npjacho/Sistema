@@ -107,6 +107,7 @@ public class BASICOa : MonoBehaviour {
         if (contador >= 2) {
             txtMsg.enabled = true;
             if (Input.GetKeyDown (KeyCode.R)) {
+                btnPrincipal.GetComponentInChildren<Text> ().text = "";
                 SceneManager.LoadScene (1);
             }
         }

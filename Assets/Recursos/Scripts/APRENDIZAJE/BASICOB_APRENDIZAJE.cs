@@ -83,8 +83,9 @@ public class BASICOB_APRENDIZAJE : MonoBehaviour {
     }
     public void InstanciarIzq () {
         //POSICIONES INICIALES
+        btnPrincipal.GetComponentInChildren<Text>().text = "ARRIBA";
+        btnPrincipal.GetComponentInChildren<Text>().alignment = TextAnchor.UpperCenter;
         btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-        //btnPrincipal.GetComponentInChildren<Text>().text = "IZQUIERDA";
         //btnIzq = Instantiate(btnPrincipal.gameObject,new Vector3(-100,(Screen.height/2),0f),transform.rotation);
         GameObject btnIzq = Instantiate (btnPrincipal.gameObject, new Vector3 ((Screen.width / 2), Screen.height + yi, 0), transform.rotation);
         Debug.Log ("contador_r = " + contador_r + " y r = " + r);
@@ -100,7 +101,8 @@ public class BASICOB_APRENDIZAJE : MonoBehaviour {
     }
 
     public void InstanciarDer () {
-        //btnPrincipal.GetComponentInChildren<Text>().text = "DERECHA";
+        btnPrincipal.GetComponentInChildren<Text>().text = "ABAJO";
+        btnPrincipal.GetComponentInChildren<Text>().alignment = TextAnchor.LowerCenter;
         btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
         GameObject btnDer = Instantiate (btnPrincipal.gameObject, new Vector3 ((Screen.width / 2), yi, 0), transform.rotation);
         btnDer.transform.SetParent (this.transform);

@@ -240,6 +240,7 @@ public class INTERMEDIO : MonoBehaviour {
         if (contador >= 4) {
             txtMsg.enabled = true;
             if (Input.GetKeyDown (KeyCode.R)) {
+                btnPrincipal.GetComponentInChildren<Text> ().text = "";
                 SceneManager.LoadScene (1);
             }
         }

@@ -12,7 +12,7 @@ public class INTERMEDIO_JUGABILIDAD : MonoBehaviour {
 
 	//Salir
 	public Text txtSalir;
-    public GameObject btnSalir;
+	public GameObject btnSalir;
 
 	private int estado_juego = 1; // 1 personaje 1 o 2 personaje 2
 
@@ -59,7 +59,7 @@ public class INTERMEDIO_JUGABILIDAD : MonoBehaviour {
 	private rgb Color_cuadrante_3, Color_cuadrante_4;
 	// Use this for initialization
 	void Start () {
-		btnSalir.SetActive(false);
+		btnSalir.SetActive (false);
 		txtContinuar.text = "";
 		btnContinuar.SetActive (false);
 		Debug.Log (codigo_detalle_aprendizaje_1);
@@ -312,34 +312,34 @@ public class INTERMEDIO_JUGABILIDAD : MonoBehaviour {
 			}
 
 			if (estado_juego == 1) {
-                if (id_personaje_1 == id_boton_1) {
-                    Debug.Log (" ** ACIERTO **  ");
-                    audioUbicacion.clip = correcto;
-                    audioUbicacion.Play ();
+				if (id_personaje_1 == id_boton_1) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
 					ACIERTOS = 1;
-                } else {
-                    Debug.Log ("--  NO ACIERTO -- ");
-                    audioUbicacion.clip = intenta_otra_vez;
-                    audioUbicacion.Play ();
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
 					ACIERTOS = 0;
-                }
-            }
+				}
+			}
 
-            if (estado_juego == 2) {
-                if (id_personaje_2 == id_boton_1) {
-                    Debug.Log (" ** ACIERTO **  ");
-                    audioUbicacion.clip = correcto;
-                    audioUbicacion.Play ();
+			if (estado_juego == 2) {
+				if (id_personaje_2 == id_boton_1) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
 					ACIERTOS = 3;
-                    
-                } else {
-                    Debug.Log ("--  NO ACIERTO -- ");
-                    audioUbicacion.clip = intenta_otra_vez;
-                    audioUbicacion.Play ();
-					ACIERTOS = 2;
-                }
 
-            }
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 2;
+				}
+
+			}
 		}
 		textoBotones (valorA, valorB, valorC, valorD);
 
@@ -358,35 +358,35 @@ public class INTERMEDIO_JUGABILIDAD : MonoBehaviour {
 			} else {
 				InstanciaAbajoIzquierda ();
 			}
-						if (estado_juego == 1) {
-                if (id_personaje_1 == id_boton_2) {
-                    Debug.Log (" ** ACIERTO **  ");
-                    audioUbicacion.clip = correcto;
-                    audioUbicacion.Play ();
+			if (estado_juego == 1) {
+				if (id_personaje_1 == id_boton_2) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
 					ACIERTOS = 1;
-                } else {
-                    Debug.Log ("--  NO ACIERTO -- ");
-                    audioUbicacion.clip = intenta_otra_vez;
-                    audioUbicacion.Play ();
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
 					ACIERTOS = 0;
-                }
-            }
+				}
+			}
 
-            if (estado_juego == 2) {
-                if (id_personaje_2 == id_boton_2) {
-                    Debug.Log (" ** ACIERTO **  ");
-                    audioUbicacion.clip = correcto;
-                    audioUbicacion.Play ();
+			if (estado_juego == 2) {
+				if (id_personaje_2 == id_boton_2) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
 					ACIERTOS = 3;
-                    
-                } else {
-                    Debug.Log ("--  NO ACIERTO -- ");
-                    audioUbicacion.clip = intenta_otra_vez;
-                    audioUbicacion.Play ();
-					ACIERTOS = 2;
-                }
 
-            }
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 2;
+				}
+
+			}
 		}
 		textoBotones (valorA, valorB, valorC, valorD);
 	}
@@ -403,35 +403,35 @@ public class INTERMEDIO_JUGABILIDAD : MonoBehaviour {
 			} else {
 				InstanciaAbajoDerecha ();
 			}
-						if (estado_juego == 1) {
-                if (id_personaje_1 == id_boton_3) {
-                    Debug.Log (" ** ACIERTO **  ");
-                    audioUbicacion.clip = correcto;
-                    audioUbicacion.Play ();
+			if (estado_juego == 1) {
+				if (id_personaje_1 == id_boton_3) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
 					ACIERTOS = 1;
-                } else {
-                    Debug.Log ("--  NO ACIERTO -- ");
-                    audioUbicacion.clip = intenta_otra_vez;
-                    audioUbicacion.Play ();
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
 					ACIERTOS = 0;
-                }
-            }
+				}
+			}
 
-            if (estado_juego == 2) {
-                if (id_personaje_2 == id_boton_3) {
-                    Debug.Log (" ** ACIERTO **  ");
-                    audioUbicacion.clip = correcto;
-                    audioUbicacion.Play ();
+			if (estado_juego == 2) {
+				if (id_personaje_2 == id_boton_3) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
 					ACIERTOS = 3;
-                    
-                } else {
-                    Debug.Log ("--  NO ACIERTO -- ");
-                    audioUbicacion.clip = intenta_otra_vez;
-                    audioUbicacion.Play ();
-					ACIERTOS = 2;
-                }
 
-            }
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 2;
+				}
+
+			}
 		}
 		textoBotones (valorA, valorB, valorC, valorD);
 	}
@@ -448,35 +448,35 @@ public class INTERMEDIO_JUGABILIDAD : MonoBehaviour {
 			} else {
 				InstanciaArribaDerecha ();
 			}
-				if (estado_juego == 1) {
-                if (id_personaje_1 == id_boton_4) {
-                    Debug.Log (" ** ACIERTO **  ");
-                    audioUbicacion.clip = correcto;
-                    audioUbicacion.Play ();
+			if (estado_juego == 1) {
+				if (id_personaje_1 == id_boton_4) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
 					ACIERTOS = 1;
-                } else {
-                    Debug.Log ("--  NO ACIERTO -- ");
-                    audioUbicacion.clip = intenta_otra_vez;
-                    audioUbicacion.Play ();
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
 					ACIERTOS = 0;
-                }
-            }
+				}
+			}
 
-            if (estado_juego == 2) {
-                if (id_personaje_2 == id_boton_4) {
-                    Debug.Log (" ** ACIERTO **  ");
-                    audioUbicacion.clip = correcto;
-                    audioUbicacion.Play ();
+			if (estado_juego == 2) {
+				if (id_personaje_2 == id_boton_4) {
+					Debug.Log (" ** ACIERTO **  ");
+					audioUbicacion.clip = correcto;
+					audioUbicacion.Play ();
 					ACIERTOS = 3;
-                    
-                } else {
-                    Debug.Log ("--  NO ACIERTO -- ");
-                    audioUbicacion.clip = intenta_otra_vez;
-                    audioUbicacion.Play ();
-					ACIERTOS = 2;
-                }
 
-            }
+				} else {
+					Debug.Log ("--  NO ACIERTO -- ");
+					audioUbicacion.clip = intenta_otra_vez;
+					audioUbicacion.Play ();
+					ACIERTOS = 2;
+				}
+
+			}
 		}
 		textoBotones (valorA, valorB, valorC, valorD);
 	}
@@ -497,6 +497,19 @@ public class INTERMEDIO_JUGABILIDAD : MonoBehaviour {
 		valorC = 0;
 		valorA = 0;
 		valorD = 0;
+
+		if (imagen_boton_A != null) {
+			imagen_boton_A.gameObject.SetActive (false);
+		}
+		if (imagen_boton_B != null) {
+			imagen_boton_B.gameObject.SetActive (false);
+		}
+		if (imagen_boton_C != null) {
+			imagen_boton_C.gameObject.SetActive (false);
+		}
+		if (imagen_boton_D != null) {
+			imagen_boton_D.gameObject.SetActive (false);
+		}
 	}
 
 	public void mostrarCuboTextoABCD () {
@@ -524,43 +537,42 @@ public class INTERMEDIO_JUGABILIDAD : MonoBehaviour {
 		valorContinuar++;
 		txtContinuar.text = "CONTINUAR " + valorContinuar;
 		if (valorContinuar >= 100) {
-			if(ACIERTOS == 0){
+			if (ACIERTOS == 0) {
 				mostrarCuboTextoABCD ();
 				StartCoroutine (playsound (audio_personaje_1));
 			}
-			if(ACIERTOS == 1){
+			if (ACIERTOS == 1) {
 				mostrarCuboTextoABCD ();
 				StartCoroutine (playsound (audio_personaje_2));
 				estado_juego = 2;
 			}
-			if(ACIERTOS == 2){
+			if (ACIERTOS == 2) {
 				mostrarCuboTextoABCD ();
 				StartCoroutine (playsound (audio_personaje_2));
 				estado_juego = 2;
 			}
-			if(ACIERTOS == 3){
+			if (ACIERTOS == 3) {
 				txtContinuar.text = "";
-                txtSalir.text = "Salir ";
-				btnContinuar.SetActive(false);
-				Debug.Log("Fin de fase");
-				btnSalir.SetActive(true);
-                valorContinuar = 0;
+				txtSalir.text = "Salir ";
+				btnContinuar.SetActive (false);
+				Debug.Log ("Fin de fase");
+				btnSalir.SetActive (true);
+				valorContinuar = 0;
 			}
-			
+
 		}
 	}
 
 	public void botonSalir () {
-        
-        valorContinuar++;
-        txtSalir.text = "SALIR " + valorContinuar;
-        if(valorContinuar >= 100){
-             valorContinuar = 0;
-             SceneManager.LoadScene (15);
-        }
-    
 
-    }
+		valorContinuar++;
+		txtSalir.text = "SALIR " + valorContinuar;
+		if (valorContinuar >= 100) {
+			valorContinuar = 0;
+			SceneManager.LoadScene (15);
+		}
+
+	}
 
 	public void InstanciaArribaIzquierda () {
 		btnPrinciapl.GetComponent<Image> ().sprite = Sprite.Create (textura_pos_A, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));

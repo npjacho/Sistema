@@ -122,7 +122,8 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
     public void InstanciarIzqSuperior () {
 
         //POSICIONES INICIALES
-        //btnPrincipal.GetComponentInChildren<Text>().text = "Izquierda Superior";
+        btnPrincipal.GetComponentInChildren<Text>().text = "Izquierda Arriba";
+        btnPrincipal.GetComponentInChildren<Text>().alignment = TextAnchor.UpperLeft;
         btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
         //GameObject btnIzqSup = Instantiate(btnPrincipal.gameObject,new Vector3(-100 ,(Screen.height/2) + 25  ,0),transform.rotation);
         GameObject btnIzqSup = Instantiate (btnPrincipal.gameObject, new Vector3 (xi, (Screen.height / 2) + yi, 0), transform.rotation);
@@ -138,7 +139,8 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
     public void InstanciarIzqInferior () {
 
         //POSICIONES INICIALES
-        //btnPrincipal.GetComponentInChildren<Text>().text = "Izquierda Inferior";
+        btnPrincipal.GetComponentInChildren<Text>().text = "Izquierda Abajo";
+        btnPrincipal.GetComponentInChildren<Text>().alignment = TextAnchor.LowerLeft;
         btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
         //GameObject btnIzqInf = Instantiate(btnPrincipal.gameObject,new Vector3( -100, (Screen.height/2) - 25 ,0),transform.rotation);
         GameObject btnIzqInf = Instantiate (btnPrincipal.gameObject, new Vector3 (xi, (Screen.height / 2) + yi, 0), transform.rotation);
@@ -155,7 +157,8 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
 
     public void InstanciarDerInferior () {
 
-        //btnPrincipal.GetComponentInChildren<Text>().text = "Derecha Inferior";
+        btnPrincipal.GetComponentInChildren<Text>().text = "Derecha Abajo";
+        btnPrincipal.GetComponentInChildren<Text>().alignment = TextAnchor.UpperRight;
         btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
         //GameObject btnDerInf = Instantiate(btnPrincipal.gameObject,new Vector3( Screen.width + 100 , (Screen.height/2) - 25  ,0),transform.rotation);
         GameObject btnDerInf = Instantiate (btnPrincipal.gameObject, new Vector3 (Screen.width + xi, (Screen.height / 2) + yi, 0), transform.rotation);
@@ -169,7 +172,8 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
     }
     public void InstanciarDerSuperior () {
 
-        //btnPrincipal.GetComponentInChildren<Text>().text = "Derecha Superior";
+        btnPrincipal.GetComponentInChildren<Text>().text = "Derecha Arriba";
+        btnPrincipal.GetComponentInChildren<Text>().alignment = TextAnchor.UpperRight;
         btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
         // GameObject btnDerSup = Instantiate(btnPrincipal.gameObject,new Vector3( Screen.width + 100 , (Screen.height/2) + 25  ,0),transform.rotation);
         GameObject btnDerSup = Instantiate (btnPrincipal.gameObject, new Vector3 (Screen.width + xi, (Screen.height / 2) + yi, 0), transform.rotation);
@@ -180,36 +184,9 @@ public class INTERMEDIO_APRENDIZAJE : MonoBehaviour {
         }
         StartCoroutine (playsound ());
     }
-    public void InstanciarIzq () {
 
-        //POSICIONES INICIALES
-        btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-        //btnPrincipal.GetComponentInChildren<Text>().text = "IZQUIERDA";
-        //btnIzq = Instantiate(btnPrincipal.gameObject,new Vector3(-100,(Screen.height/2),0f),transform.rotation);
-        GameObject btnIzq = Instantiate (btnPrincipal.gameObject, new Vector3 (xi, (Screen.height / 2), 0f), transform.rotation);
-        Debug.Log ("contador_r = " + contador_r + " y r = " + r);
-        btnIzq.transform.SetParent (this.transform);
-        pos_btn_A = btnIzq.GetComponent<Transform> ();
-        if (contador_r == r) {
-            pos_btn_A.GetComponent<Button> ().onClick.AddListener (contar);
-        }
-        StartCoroutine (playsound ());
-        //audioUbicacion.Play();
-        //Debug.Log("Xa = "+ pos_btn_A.position.x + "Ya = " + pos_btn_A.position.y);
 
-    }
 
-    public void InstanciarDer () {
-        //btnPrincipal.GetComponentInChildren<Text>().text = "DERECHA";
-        btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
-        GameObject btnDer = Instantiate (btnPrincipal.gameObject, new Vector3 (Screen.width + 100, (Screen.height / 2), 0f), transform.rotation);
-        btnDer.transform.SetParent (this.transform);
-        pos_btn_B = btnDer.GetComponent<Transform> ();
-        if (contador_r == r) {
-            pos_btn_B.GetComponent<Button> ().onClick.AddListener (contar);
-        }
-        StartCoroutine (playsound ());
-    }
 
     IEnumerator playsound () {
         Debug.Log ("reproducuiendo......");

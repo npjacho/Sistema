@@ -50,7 +50,7 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 	private Image imgA, imgB, imgC, imgD;
 	private Image imgE, imgF, imgG, imgH, imgI;
 	//Codigos del la vista nivel.
-	private int codigo_detalle_aprendizaje_1 =  LOGIN_JUGABILIDAD.codigosAvanzado.ElementAt (0);
+	private int codigo_detalle_aprendizaje_1 = LOGIN_JUGABILIDAD.codigosAvanzado.ElementAt (0);
 	private int codigo_detalle_aprendizaje_2 = LOGIN_JUGABILIDAD.codigosAvanzado.ElementAt (1);
 
 	//Botones en GameObject 4.
@@ -991,6 +991,33 @@ public class AVANZADO_JUGABILIDAD : MonoBehaviour {
 		valorG = 0;
 		valorH = 0;
 		valorI = 0;
+		if (imagen_boton_A != null) {
+			imagen_boton_A.gameObject.SetActive (false);
+		}
+		if (imagen_boton_B != null) {
+			imagen_boton_B.gameObject.SetActive (false);
+		}
+		if (imagen_boton_C != null) {
+			imagen_boton_C.gameObject.SetActive (false);
+		}
+		if (imagen_boton_D != null) {
+			imagen_boton_D.gameObject.SetActive (false);
+		}
+		if (imagen_boton_E != null) {
+			imagen_boton_E.gameObject.SetActive (false);
+		}
+		if (imagen_boton_F != null) {
+			imagen_boton_F.gameObject.SetActive (false);
+		}
+		if (imagen_boton_G != null) {
+			imagen_boton_G.gameObject.SetActive (false);
+		}
+		if (imagen_boton_H != null) {
+			imagen_boton_H.gameObject.SetActive (false);
+		}
+		if (imagen_boton_I != null) {
+			imagen_boton_I.gameObject.SetActive (false);
+		}
 	}
 
 	public void mostrarCuboTextoABCD () {

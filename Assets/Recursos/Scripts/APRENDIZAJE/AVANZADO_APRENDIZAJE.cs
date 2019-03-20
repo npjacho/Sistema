@@ -190,6 +190,7 @@ public class AVANZADO_APRENDIZAJE : MonoBehaviour {
     void InstanciarPosA () {
         //POSICIONES INICIALES
         //btnPrincipal.GetComponentInChildren<Text> ().text = "Izquierda Arriba";
+        //btnPrincipal.GetComponentInChildren<Text>().alignment = TextAnchor.LowerCenter;
         btnPrincipal.GetComponent<Image> ().sprite = Sprite.Create (tex, new Rect (0, 0, 256, 256), new Vector2 (0.5f, 0.5f));
         //btnPrincipal.onClick.AddListener(contar);
         GameObject btnIzqSup = Instantiate (btnPrincipal.gameObject, new Vector3 (-100, (Screen.height / 6) * 5, 0), transform.rotation);
