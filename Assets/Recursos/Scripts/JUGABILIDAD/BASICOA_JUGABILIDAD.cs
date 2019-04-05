@@ -44,16 +44,23 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
     private Texture2D texturaDerecha;
     rgb colorIzq = new rgb ();
     rgb colorDer = new rgb ();
-    private int codigo_detalle_aprendizaje_1 = LOGIN_JUGABILIDAD.codigosBasicoA.ElementAt(0);
-    private int codigo_detalle_aprendizaje_2 = LOGIN_JUGABILIDAD.codigosBasicoA.ElementAt(1);
+    private int codigo_detalle_aprendizaje_1 = LOGIN_JUGABILIDAD.codigosBasicoA.ElementAt (0);
+    private int codigo_detalle_aprendizaje_2 = LOGIN_JUGABILIDAD.codigosBasicoA.ElementAt (1);
+
+    public  string tiempoTranscurrido;
+    public  float startTime;
+    public  float stopTime;
+    public  float timerTime;
+    public  bool isRunning = false;
 
     // Use this for initialization
     void Start () {
+        TimerReset ();
         texturaIzquierda = new Texture2D (256, 256);
         texturaDerecha = new Texture2D (256, 256);
         txtcontinuar.text = "";
         txtFinal.text = "";
-        btnSalir.SetActive(false);
+        btnSalir.SetActive (false);
         txtSalir.text = "";
         btnMsg.SetActive (false);
         Debug.Log (codigo_detalle_aprendizaje_1);
@@ -62,11 +69,42 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
         imgB = panelB.GetComponent<Image> ();
         obtenerDatos1 (codigo_detalle_aprendizaje_1);
         obtenerDatos2 (codigo_detalle_aprendizaje_2);
+
     }
 
     // Update is called once per frame
     void Update () {
+        		timerTime = stopTime + (Time.time - startTime);
+		int minutesInt = (int) timerTime / 60;
+		int secondsInt = (int) timerTime % 60;
+		int seconds100Int = (int) (Mathf.Floor ((timerTime - (secondsInt + minutesInt * 60)) * 100));
 
+		if (isRunning) {
+			tiempoTranscurrido = string.Format ("{00}:{01}:{02}", minutesInt.ToString(), secondsInt.ToString(), seconds100Int.ToString());
+		}
+
+    }
+    public void TimerStart () {
+        if (!isRunning) {
+            Debug.Log ("START");
+            isRunning = true;
+            startTime = Time.time;
+        }
+    }
+
+    public void TimerStop () {
+        if (isRunning) {
+            Debug.Log ("STOP");
+            isRunning = false;
+            stopTime = timerTime;
+        }
+    }
+
+    public void TimerReset () {
+        Debug.Log ("RESET");
+        stopTime = 0;
+        isRunning = false;
+        //timerMinutes.text = timerSeconds.text = timerSeconds100.text = "00";
     }
 
     public void siguienteElemento () {
@@ -175,26 +213,25 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
         //Debug.Log( "Tiempo del Cronometro = " + CRONOMETRO.cuentaAtras );
         imgA.color = new Color (colorIzq.r, colorIzq.g, colorIzq.b);
         // Guardar tiempo uno;
-        Debug.Log(CRONOMETRO.tiempoTranscurrido);
-        if( tiempo_cuadrado == null){
+        Debug.Log (CRONOMETRO.tiempoTranscurrido);
+        if (tiempo_cuadrado == null) {
             tiempo_cuadrado = CRONOMETRO.tiempoTranscurrido;
-            CRONOMETRO_PANEL.TimerStart();
+            CRONOMETRO_PANEL.TimerStart ();
         }
 
     }
     public void interaccionPanelASalir () {
         imgA.color = new Color (255, 255, 255);
         // Guardar tiempo uno;
-        
-        
+
     }
 
     public void interccionPanelB () {
         imgB.color = new Color (colorDer.r, colorDer.g, colorDer.b);
-        Debug.Log(CRONOMETRO.tiempoTranscurrido);
-        if( tiempo_cuadrado == null){
+        Debug.Log (CRONOMETRO.tiempoTranscurrido);
+        if (tiempo_cuadrado == null) {
             tiempo_cuadrado = CRONOMETRO.tiempoTranscurrido;
-            CRONOMETRO_PANEL.TimerStart();
+            CRONOMETRO_PANEL.TimerStart ();
         }
     }
     public void interccionPanelBSalir () {
@@ -229,12 +266,12 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
             txtcontinuar.text = "CONTINUAR ";
 
             Debug.Log (" ID DERECHA  " + id_boton_derecha);
-            if (estado_juego == 1 && intentos > 0 ) {
-                    intentos--;
+            if (estado_juego == 1 && intentos > 0) {
+                intentos--;
                 if (id_personaje_1 == id_boton_derecha) {
                     Debug.Log (" ** ACIERTO **  ");
                     //Tiempo a boton
-                    Debug.Log(CRONOMETRO_PANEL.tiempoTranscurrido);
+                    Debug.Log (CRONOMETRO_PANEL.tiempoTranscurrido);
                     tiempo_boton = CRONOMETRO.tiempoTranscurrido;
                     audioUbicacion.clip = correcto;
                     audioUbicacion.Play ();
@@ -242,22 +279,22 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
                 } else {
                     Debug.Log ("--  NO ACIERTO -- ");
                     //Tiempo a boton
-                    Debug.Log(CRONOMETRO_PANEL.tiempoTranscurrido);
+                    Debug.Log (CRONOMETRO_PANEL.tiempoTranscurrido);
                     tiempo_boton = CRONOMETRO_PANEL.tiempoTranscurrido;
                     audioUbicacion.clip = intenta_otra;
                     audioUbicacion.Play ();
                     ACIERTO = 0;
                 }
 
-                Debug.Log("INTENTOS =>> " + intentos);
+                Debug.Log ("INTENTOS =>> " + intentos);
             }
 
-            if (estado_juego == 2 && intentos > 0 ) {
-                    intentos--;
+            if (estado_juego == 2 && intentos > 0) {
+                intentos--;
                 if (id_personaje_2 == id_boton_derecha) {
                     Debug.Log (" ** ACIERTO **  ");
                     //Tiempo a boton
-                    Debug.Log(CRONOMETRO_PANEL.tiempoTranscurrido);
+                    Debug.Log (CRONOMETRO_PANEL.tiempoTranscurrido);
                     tiempo_boton = CRONOMETRO_PANEL.tiempoTranscurrido;
                     audioUbicacion.clip = correcto;
                     audioUbicacion.Play ();
@@ -265,13 +302,13 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
                 } else {
                     Debug.Log ("--  NO ACIERTO -- ");
                     //Tiempo a boton
-                    Debug.Log(CRONOMETRO_PANEL.tiempoTranscurrido);
+                    Debug.Log (CRONOMETRO_PANEL.tiempoTranscurrido);
                     tiempo_boton = CRONOMETRO_PANEL.tiempoTranscurrido;
                     audioUbicacion.clip = intenta_otra;
                     ACIERTO = 2;
                     audioUbicacion.Play ();
                 }
-                Debug.Log("INTENTOS =>> " + intentos);
+                Debug.Log ("INTENTOS =>> " + intentos);
             }
 
         }
@@ -299,7 +336,7 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
 
             Debug.Log (" id izquierda " + id_boton_izquierda);
             if (estado_juego == 1 && intentos > 0) {
-                    intentos--;
+                intentos--;
                 if (id_personaje_1 == id_boton_izquierda) {
                     Debug.Log (" ** ACIERTO **  ");
                     audioUbicacion.clip = correcto;
@@ -311,14 +348,13 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
                     audioUbicacion.Play ();
                     ACIERTO = 0;
                 }
-                Debug.Log("INTENTOS =>> " + intentos);
-            }else
-            {
-                Debug.Log("Se acabaron los Intentos");
+                Debug.Log ("INTENTOS =>> " + intentos);
+            } else {
+                Debug.Log ("Se acabaron los Intentos");
             }
 
             if (estado_juego == 2 && intentos > 0) {
-                    intentos--;
+                intentos--;
                 if (id_personaje_2 == id_boton_izquierda) {
                     Debug.Log (" ** ACIERTO **  ");
                     audioUbicacion.clip = correcto;
@@ -330,10 +366,9 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
                     audioUbicacion.Play ();
                     ACIERTO = 2;
                 }
-                Debug.Log("INTENTOS =>> " + intentos);
-            }else
-            {
-                Debug.Log("Se acabaron los intentos");
+                Debug.Log ("INTENTOS =>> " + intentos);
+            } else {
+                Debug.Log ("Se acabaron los intentos");
             }
 
         }
@@ -367,21 +402,20 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
                 estado_juego = 2;
             }
 
-            if (ACIERTO == 2 && intentos > 0){
+            if (ACIERTO == 2 && intentos > 0) {
                 StartCoroutine (playsound2 ());
                 estado_juego = 2;
             }
 
-            if(intentos <= 0 || ACIERTO == 3){
-                Debug.Log("Se acabaron tus intentos");
+            if (intentos <= 0 || ACIERTO == 3) {
+                Debug.Log ("Se acabaron tus intentos");
                 btn_izquierda.SetActive (false);
                 btn_derecha.SetActive (false);
                 txtFinal.text = "Fase terminada... presiona en continuar";
-                btnSalir.SetActive(true);
+                btnSalir.SetActive (true);
                 txtSalir.text = "Salir ";
                 valorContinuar = 0;
             }
-
 
         }
     }
@@ -398,14 +432,13 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
     }
 
     public void botonSalir () {
-        
+
         valorContinuar++;
         txtSalir.text = "SALIR " + valorContinuar;
-        if(valorContinuar >= 100){
-             valorContinuar = 0;
-             SceneManager.LoadScene (15);
+        if (valorContinuar >= 100) {
+            valorContinuar = 0;
+            SceneManager.LoadScene (15);
         }
-    
 
     }
 
@@ -432,8 +465,7 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
         audioUbicacion.clip = audio_personaje_1;
         audioUbicacion.Play ();
         //INICIAR TIEMPO 1
-        CRONOMETRO.TimerStart();
-        
+        TimerStart ();
 
     }
 
@@ -452,7 +484,7 @@ public class BASICOA_JUGABILIDAD : MonoBehaviour {
         dbconn = (IDbConnection) new SqliteConnection (conn);
         dbconn.Open ();
         IDbCommand dbcmd = dbconn.CreateCommand ();
-        string sqlQuery = "INSERT INTO detalle_aprendizaje_acierto (tiempo_reaccion,tiempo_cuadro, tiempo_boton, acierto, id_detalle_aprendozaje) Values ('" + time1 + "','" + time2 + "','" + time3 + "' , '"+ acierto +"' , '" + id_detalle_aprendizaje+ "' )";
+        string sqlQuery = "INSERT INTO detalle_aprendizaje_acierto (tiempo_reaccion,tiempo_cuadro, tiempo_boton, acierto, id_detalle_aprendozaje) Values ('" + time1 + "','" + time2 + "','" + time3 + "' , '" + acierto + "' , '" + id_detalle_aprendizaje + "' )";
         dbcmd.CommandText = sqlQuery;
         dbcmd.ExecuteReader ();
         Debug.Log ("Datos Guardados Corectamente!..");

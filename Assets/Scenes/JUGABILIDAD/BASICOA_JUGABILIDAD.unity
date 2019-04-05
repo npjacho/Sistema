@@ -929,6 +929,11 @@ MonoBehaviour:
   btnMsg: {fileID: 6564057}
   btn_izquierda: {fileID: 1364943668}
   btn_derecha: {fileID: 675988901}
+  tiempoTranscurrido: 
+  startTime: 0
+  stopTime: 0
+  timerTime: 0
+  isRunning: 0
 --- !u!1 &944642737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,7 +1992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1715495581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2618,7 +2623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2139135576
 MonoBehaviour:
   m_ObjectHideFlags: 0
